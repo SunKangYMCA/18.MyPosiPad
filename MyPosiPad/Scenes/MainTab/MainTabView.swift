@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MainTabView: View {
     var body: some View {
-        NavigationView {
             TabView {
                 MainView()
                     .tabItem {
@@ -28,7 +27,6 @@ struct MainTabView: View {
                         Label("Settings", systemImage: "gear")
                     }
             }
-        }
     }
 }
 
