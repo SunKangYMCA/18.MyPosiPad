@@ -43,11 +43,7 @@ struct MainView: View {
                     }
                     .padding()
                 }
-            }
-            
-            
-            
-            
+            } 
         }
     }
     
