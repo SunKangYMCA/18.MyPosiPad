@@ -46,7 +46,7 @@ struct CartListRow: View {
 
 struct CartListRow_Previews: PreviewProvider {
     static var previews: some View {
-        CartListRow(product: Product(name: "", price: 0.0, quantity: 1, smallPicture: "", largePicture: "", size: "", color: ""))
+        CartListRow(product: Product(name: "", price: 0.0, quantity: 1, smallPicture: "", largePicture: "", type: .homes, size: "", color: ""))
             .environmentObject(CartListManager())
     }
 }

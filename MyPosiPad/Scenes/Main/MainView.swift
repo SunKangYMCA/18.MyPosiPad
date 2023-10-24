@@ -15,6 +15,7 @@ struct MainView: View {
     var body: some View {
         HStack {
             VStack {
+                filterButton
                 productListView
                 addProductButton
             }
@@ -29,6 +30,21 @@ struct MainView: View {
         
         .padding(.horizontal, 30)
         .environmentObject(cartListManager)
+    }
+    
+    private var filterButton: some View {
+        Button {
+            
+        } label: {
+            Text("foods")
+                .font(.system(size: 24, weight: .bold))
+                .padding()
+                .background(
+                    Color.indigo
+                        .opacity(0.3)
+                        .cornerRadius(15)
+                )
+        }
     }
     
     private var productListView: some View {
