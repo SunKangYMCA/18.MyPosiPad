@@ -9,7 +9,11 @@ import SwiftUI
 
 class MainViewModel: ObservableObject {
     
-    let columns: [GridItem] = [GridItem(.adaptive(minimum: 160), spacing: 20)
+    let columns: [GridItem] = [
+        GridItem(.fixed(200)),
+        GridItem(.fixed(200)),
+        GridItem(.fixed(200)),
+        GridItem(.fixed(200))
     ]
     
     @Published var products: [Product] = [
