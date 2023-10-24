@@ -25,6 +25,7 @@
 		04C487B42AD352EC00A068E7 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C487B32AD352EC00A068E7 /* SplashView.swift */; };
 		04C487B92AD3535400A068E7 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C487B82AD3535400A068E7 /* SplashViewModel.swift */; };
 		04C487BC2AD38CD400A068E7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C487BB2AD38CD400A068E7 /* LoginView.swift */; };
+		04D8BDF72AE782CB002DA263 /* ProductType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D8BDF62AE782CB002DA263 /* ProductType.swift */; };
 		04E4AC802ADB3CE400E4D3CB /* CartListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E4AC7F2ADB3CE400E4D3CB /* CartListRow.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		04C487B32AD352EC00A068E7 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		04C487B82AD3535400A068E7 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		04C487BB2AD38CD400A068E7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		04D8BDF62AE782CB002DA263 /* ProductType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductType.swift; sourceTree = "<group>"; };
 		04E4AC7F2ADB3CE400E4D3CB /* CartListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartListRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +69,7 @@
 			children = (
 				041263E52AD4E18B00E9E49E /* Employee.swift */,
 				041263F92AD60F9B00E9E49E /* Product.swift */,
+				04D8BDF62AE782CB002DA263 /* ProductType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				041263FD2AD6229900E9E49E /* ProductCard.swift in Sources */,
 				041263EC2AD608B200E9E49E /* SettingsView.swift in Sources */,
 				041263E92AD4EA7500E9E49E /* MainTabView.swift in Sources */,
+				04D8BDF72AE782CB002DA263 /* ProductType.swift in Sources */,
 				041263E62AD4E18B00E9E49E /* Employee.swift in Sources */,
 				04C487B42AD352EC00A068E7 /* SplashView.swift in Sources */,
 				041263F22AD6090700E9E49E /* PaymentHistoryView.swift in Sources */,
