@@ -65,6 +65,11 @@ struct MainView: View {
             
             
         }
+        
+        
+        
+        
+        
     }
     
     private var cartListView: some View {
