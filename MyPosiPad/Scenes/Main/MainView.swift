@@ -59,7 +59,7 @@ struct MainView: View {
                     }
                     .padding()
                 }
-            } 
+            }
         }
     }
     
@@ -97,7 +97,7 @@ struct MainView: View {
     
     private var addProductButton: some View {
         Button {
-            
+            viewModel.showAddProductView.toggle()
         } label: {
             Text("add New Product")
                 .font(.system(size: 32, weight: .heavy))
@@ -108,6 +108,9 @@ struct MainView: View {
                         .opacity(0.5)
                         .cornerRadius(15)
                     )
+        }
+        .sheet(isPresented: $viewModel.showAddProductView) {
+            AddProductView()
         }
     }
     
