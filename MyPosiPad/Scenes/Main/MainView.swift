@@ -66,7 +66,7 @@ struct MainView: View {
             }
         }
     }
-
+  
     private var cartListView: some View {
         VStack {
             Text("List")
