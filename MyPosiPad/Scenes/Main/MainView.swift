@@ -15,7 +15,7 @@ struct MainView: View {
     var body: some View {
         HStack {
             VStack {
-                filterButton
+                filterButtons
                 productListView
                 addProductButton
             }
@@ -27,23 +27,27 @@ struct MainView: View {
                 checkoutButton
             }
         }
-        
+        .onAppear(perform: {
+            viewModel.products = viewModel.allProducts
+        })
         .padding(.horizontal, 30)
         .environmentObject(cartListManager)
     }
     
-    private var filterButton: some View {
-        Button {
-            
-        } label: {
-            Text("foods")
-                .font(.system(size: 24, weight: .bold))
-                .padding()
-                .background(
-                    Color.indigo
-                        .opacity(0.3)
-                        .cornerRadius(15)
-                )
+    private var filterButtons: some View {
+        HStack(spacing: 20) {
+            FilterButton(title: "All") {
+                viewModel.products = viewModel.allProducts
+            }
+            FilterButton(title: "Foods") {
+                viewModel.showFilter(type: .foods)
+            }
+            FilterButton(title: "Clothes") {
+                viewModel.showFilter(type: .clothes)
+            }
+            FilterButton(title: "Homes") {
+                viewModel.showFilter(type: .homes)
+            }
         }
     }
     
@@ -62,11 +66,7 @@ struct MainView: View {
             }
         }
     }
-    
-    
-    
-    
-    
+
     private var cartListView: some View {
         VStack {
             Text("List")

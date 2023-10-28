@@ -11,10 +11,8 @@ class LoginViewModel: ObservableObject {
     
     @Published var employee: Employee = Employee(initial: "", passcode: "")
     @Published var shouldShowMainTabView: Bool = false
-    
-    private var samplePasscode = "0001"
 
-    private var passcodes = ["0001", "0002"]
+    private var passcodes = ["0001", "0002", "0003"]
     
     func showMainTabView() {
         if passcodes.contains(employee.passcode) {
