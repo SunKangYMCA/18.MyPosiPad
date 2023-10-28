@@ -9,6 +9,8 @@ import SwiftUI
 
 class MainViewModel: ObservableObject {
     
+    @Published var showAddProductView: Bool = false
+    
     let columns: [GridItem] = [
         GridItem(.fixed(200)),
         GridItem(.fixed(200)),
@@ -16,7 +18,7 @@ class MainViewModel: ObservableObject {
         GridItem(.fixed(200))
     ]
     
-    @Published var products: [Product] = [
+    var allProducts: [Product] = [
         Product(name: "Banana", price: 0.45, quantity: 1, smallPicture: "BananaSmall", largePicture: "BananaLarge", type: .foods, size: "None", color: "None"),
         Product(name: "Orenge", price: 0.99, quantity: 1, smallPicture: "OrangeSmall", largePicture: "OrangeLarge", type: .foods, size: "None", color: "None"),
         Product(name: "Apple", price: 1.55, quantity: 1, smallPicture: "AppleSmall", largePicture: "AppleLarge", type: .foods, size: "None", color: "None"),
@@ -30,5 +32,10 @@ class MainViewModel: ObservableObject {
         Product(name: "Detergent", price: 12.99, quantity: 1, smallPicture: "DetergentSmall", largePicture: "DetergentLarge", type: .homes, size: "4L", color: "Red"),
         ]
     
+    @Published var products: [Product] = []
     
+    func showFilter (type: ProductType) {
+        products = allProducts
+        products = products.filter { $0.type == type }
+    }
 }

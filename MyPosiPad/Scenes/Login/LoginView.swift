@@ -27,7 +27,7 @@ struct LoginView: View {
     
     private var employeePassCodeField: some View {
         
-        TextField("passcode", text: $viewModel.employee.passcode, prompt: Text("EmployCode 4 digits, ex) 0001"))
+        TextField("passcode", text: $viewModel.employee.passcode, prompt: Text("EmployCode 4 digits, ex) 0001, 0002, 0003"))
             .padding(30)
             .background(
                 Color.green
