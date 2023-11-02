@@ -9,7 +9,7 @@ import Foundation
 
 class LoginViewModel: ObservableObject {
     
-    @Published var employee: Employee = Employee(initial: "", passcode: "")
+    @Published var employee: Employee = Employee(initial: "", passcode: "0002")
     @Published var shouldShowMainTabView: Bool = false
 
     private var passcodes = ["0001", "0002", "0003"]
