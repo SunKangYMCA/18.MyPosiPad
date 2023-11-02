@@ -18,7 +18,7 @@ class MainViewModel: ObservableObject {
         GridItem(.fixed(200))
     ]
     
-    var allProducts: [Product] = [
+    @Published var allProducts: [Product] = [
         Product(name: "Banana", price: 0.45, quantity: 1, smallPicture: "BananaSmall", largePicture: "BananaLarge", type: .foods, size: "None", color: "None"),
         Product(name: "Orenge", price: 0.99, quantity: 1, smallPicture: "OrangeSmall", largePicture: "OrangeLarge", type: .foods, size: "None", color: "None"),
         Product(name: "Apple", price: 1.55, quantity: 1, smallPicture: "AppleSmall", largePicture: "AppleLarge", type: .foods, size: "None", color: "None"),

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04041E852AEDB10F0007F06C /* UserDefaultsManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04041E842AEDB10F0007F06C /* UserDefaultsManger.swift */; };
 		040F04E52AEB474800AE05FB /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F04E42AEB474800AE05FB /* FilterButton.swift */; };
 		041263E32AD4E06400E9E49E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041263E22AD4E06400E9E49E /* LoginViewModel.swift */; };
 		041263E62AD4E18B00E9E49E /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041263E52AD4E18B00E9E49E /* Employee.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04041E842AEDB10F0007F06C /* UserDefaultsManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManger.swift; sourceTree = "<group>"; };
 		040F04E42AEB474800AE05FB /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
 		041263E22AD4E06400E9E49E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		041263E52AD4E18B00E9E49E /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 		0412991F2AD784AA00B302CB /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				04041E842AEDB10F0007F06C /* UserDefaultsManger.swift */,
 				041299202AD784D800B302CB /* CartListManager.swift */,
 			);
 			path = Managers;
@@ -288,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04E4AC802ADB3CE400E4D3CB /* CartListRow.swift in Sources */,
+				04041E852AEDB10F0007F06C /* UserDefaultsManger.swift in Sources */,
 				04C487A82AD3528D00A068E7 /* ContentView.swift in Sources */,
 				041299212AD784D800B302CB /* CartListManager.swift in Sources */,
 				041263F62AD6099700E9E49E /* PayView.swift in Sources */,
