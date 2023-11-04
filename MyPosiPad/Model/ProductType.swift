@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum ProductType: Codable, CaseIterable, Identifiable {
-case foods, clothes, homes
+case all, foods, clothes, homes
     
     var id: Self {
        self
@@ -16,6 +16,8 @@ case foods, clothes, homes
     
     var title: String {
         switch self {
+        case .all:
+            return "All"
         case .foods:
             return "Food"
         case .clothes:
@@ -27,6 +29,8 @@ case foods, clothes, homes
     
     var color: Color {
         switch self {
+        case .all:
+            return .green
         case .foods:
             return .red
         case .clothes:
