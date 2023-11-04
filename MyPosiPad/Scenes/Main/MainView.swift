@@ -11,6 +11,10 @@ struct MainView: View {
     
     @StateObject var viewModel: MainViewModel = MainViewModel()
     @StateObject var cartListManager: CartListManager = CartListManager()
+    @State var isSelectedAll: Bool = false
+    @State var isSelectedFoods: Bool = false
+    @State var isSelectedClothes: Bool = false
+    @State var isSelectedHomes: Bool = false
     
     var body: some View {
         HStack {
@@ -30,23 +34,75 @@ struct MainView: View {
         .onAppear(perform: {
             viewModel.products = viewModel.allProducts
         })
+        
         .padding(.horizontal, 30)
         .environmentObject(cartListManager)
     }
     
     private var filterButtons: some View {
         HStack(spacing: 20) {
-            FilterButton(title: "All") {
+            Button {
                 viewModel.products = viewModel.allProducts
+                isSelectedAll = true
+                isSelectedFoods = false
+                isSelectedClothes = false
+                isSelectedHomes = false
+            } label: {
+                Text("All")
+                    .font(.system(size: 24, weight: .bold))
+                    .padding()
+                    .background(
+                        isSelectedAll ? Color.red.opacity(0.3) : Color.indigo.opacity(0.3)
+                    )
+                    .cornerRadius(15)
             }
-            FilterButton(title: "Foods") {
+            
+            Button {
                 viewModel.showFilter(type: .foods)
+                isSelectedAll = false
+                isSelectedFoods = true
+                isSelectedClothes = false
+                isSelectedHomes = false
+            } label: {
+                Text("Foods")
+                    .font(.system(size: 24, weight: .bold))
+                    .padding()
+                    .background(
+                        isSelectedFoods ? Color.red.opacity(0.3) : Color.indigo.opacity(0.3)
+                    )
+                    .cornerRadius(15)
             }
-            FilterButton(title: "Clothes") {
+            
+            Button {
                 viewModel.showFilter(type: .clothes)
+                isSelectedAll = false
+                isSelectedFoods = false
+                isSelectedClothes = true
+                isSelectedHomes = false
+            } label: {
+                Text("Clothes")
+                    .font(.system(size: 24, weight: .bold))
+                    .padding()
+                    .background(
+                        isSelectedClothes ? Color.red.opacity(0.3) : Color.indigo.opacity(0.3)
+                    )
+                    .cornerRadius(15)
             }
-            FilterButton(title: "Homes") {
+            
+            Button {
                 viewModel.showFilter(type: .homes)
+                isSelectedAll = false
+                isSelectedFoods = false
+                isSelectedClothes = false
+                isSelectedHomes = true
+            } label: {
+                Text("Homes")
+                    .font(.system(size: 24, weight: .bold))
+                    .padding()
+                    .background(
+                        isSelectedHomes ? Color.red.opacity(0.3) : Color.indigo.opacity(0.3)
+                    )
+                    .cornerRadius(15)
             }
         }
     }
