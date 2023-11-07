@@ -15,6 +15,7 @@ struct MainView: View {
     @State var isSelectedFoods: Bool = false
     @State var isSelectedClothes: Bool = false
     @State var isSelectedHomes: Bool = false
+    @EnvironmentObject var loggedInformation: LoginViewModel
     
     var body: some View {
         HStack {
@@ -122,11 +123,25 @@ struct MainView: View {
             }
         }
     }
-  
+    
     private var cartListView: some View {
         VStack {
+            
+            HStack {
+                Spacer()
+                Button {
+                    loggedInformation.isSignOut()
+                } label: {
+                    Text("LogOut")
+                        .foregroundColor(.red)
+                        .bold()
+                }
+                
+            }
+            
             Text("List")
                 .font(.system(size: 48, weight: .bold))
+            
             Divider()
             
             
@@ -163,7 +178,7 @@ struct MainView: View {
                     Color.blue
                         .opacity(0.5)
                         .cornerRadius(15)
-                    )
+                )
         }
         .sheet(isPresented: $viewModel.showAddProductView) {
             AddProductView()
@@ -172,7 +187,7 @@ struct MainView: View {
     
     private var checkoutButton: some View {
         NavigationLink {
-         PayView()
+            PayView()
         } label: {
             Text("Check Out\n$" + String(format: "%.2f", cartListManager.totalPrice))
                 .foregroundColor(.black)
@@ -182,7 +197,7 @@ struct MainView: View {
                     Color.red
                         .opacity(0.5)
                         .cornerRadius(15)
-                    )
+                )
         }
     }
 }
@@ -191,5 +206,6 @@ struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
             .environmentObject(CartListManager())
+            .environmentObject(LoginViewModel())
     }
 }

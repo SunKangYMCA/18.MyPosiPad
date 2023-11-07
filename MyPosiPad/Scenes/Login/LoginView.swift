@@ -12,16 +12,20 @@ struct LoginView: View {
     @StateObject var viewModel: LoginViewModel = LoginViewModel()
     
     var body: some View {
-        VStack {
-            Text("Employee Pass Code")
-                .font(.system(size: UIScreen.main.bounds.width * 0.1, weight: .bold))
-            
-            employeePassCodeField
-            
-            loginButton
-                .fullScreenCover(isPresented: $viewModel.shouldShowMainTabView) {
-                    MainTabView()
-                }
+        if viewModel.userDefaultsManager.isUserLogged {
+            MainTabView()
+        } else {
+            VStack {
+                Text("Employee Pass Code")
+                    .font(.system(size: UIScreen.main.bounds.width * 0.1, weight: .bold))
+                
+                employeePassCodeField
+                
+                loginButton
+                    .fullScreenCover(isPresented: $viewModel.shouldShowMainTabView) {
+                        MainTabView()
+                    }
+            }
         }
     }
     
@@ -43,6 +47,7 @@ struct LoginView: View {
         
         Button {
             viewModel.showMainTabView()
+            print(viewModel.loggedUser)
         } label: {
             Text("***Login***")
                 .font(.title)
@@ -52,7 +57,7 @@ struct LoginView: View {
                     Color.blue
                         .opacity(0.5)
                         .blur(radius: 2)
-                    )
+                )
         }
         .padding()
     }
