@@ -1,16 +1,18 @@
-//
+
 //  UserDefaultsManger.swift
 //  MyPos
 //
 //  Created by 강성찬 on 2023-09-21.
 //
 
-//import SwiftUI
-//
-//class UserDefaultsManager {
-//    
-//    static var shared = UserDefaultsManager()
-//    
+import SwiftUI
+
+class UserDefaultsManager {
+    
+    @AppStorage("USER_KEY") var isUserLogged = false
+    
+    static var shared = UserDefaultsManager()
+    
 //    func saveProduct(_ product: [Product]) {
 //        if let data = try? JSONEncoder().encode(product) {
 //            UserDefaults.standard.set(data, forKey: "SAVE_KEY")
@@ -25,4 +27,4 @@
 //        }
 //        return []
 //    }
-//}
+}
