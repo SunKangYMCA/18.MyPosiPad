@@ -19,6 +19,7 @@
 		041263FA2AD60F9B00E9E49E /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041263F92AD60F9B00E9E49E /* Product.swift */; };
 		041263FD2AD6229900E9E49E /* ProductCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041263FC2AD6229900E9E49E /* ProductCard.swift */; };
 		041299212AD784D800B302CB /* CartListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041299202AD784D800B302CB /* CartListManager.swift */; };
+		045F60902AFAD9C600AB7C8B /* LoggedEmployeeProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F608F2AFAD9C600AB7C8B /* LoggedEmployeeProfile.swift */; };
 		04C487A62AD3528D00A068E7 /* MyPosiPadApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C487A52AD3528D00A068E7 /* MyPosiPadApp.swift */; };
 		04C487A82AD3528D00A068E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C487A72AD3528D00A068E7 /* ContentView.swift */; };
 		04C487AA2AD3529000A068E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C487A92AD3529000A068E7 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		041263F92AD60F9B00E9E49E /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		041263FC2AD6229900E9E49E /* ProductCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCard.swift; sourceTree = "<group>"; };
 		041299202AD784D800B302CB /* CartListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartListManager.swift; sourceTree = "<group>"; };
+		045F608F2AFAD9C600AB7C8B /* LoggedEmployeeProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedEmployeeProfile.swift; sourceTree = "<group>"; };
 		04C487A22AD3528D00A068E7 /* MyPosiPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPosiPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C487A52AD3528D00A068E7 /* MyPosiPadApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPosiPadApp.swift; sourceTree = "<group>"; };
 		04C487A72AD3528D00A068E7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				041263E52AD4E18B00E9E49E /* Employee.swift */,
 				041263F92AD60F9B00E9E49E /* Product.swift */,
 				04D8BDF62AE782CB002DA263 /* ProductType.swift */,
+				04BF41BA2AFDD6A90069DCCC /* New Group */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -124,6 +127,7 @@
 			children = (
 				041263FC2AD6229900E9E49E /* ProductCard.swift */,
 				04E4AC7F2ADB3CE400E4D3CB /* CartListRow.swift */,
+				045F608F2AFAD9C600AB7C8B /* LoggedEmployeeProfile.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -135,6 +139,13 @@
 				041299202AD784D800B302CB /* CartListManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		04BF41BA2AFDD6A90069DCCC /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 		04C487992AD3528D00A068E7 = {
@@ -295,6 +306,7 @@
 				04C487A62AD3528D00A068E7 /* MyPosiPadApp.swift in Sources */,
 				041263E32AD4E06400E9E49E /* LoginViewModel.swift in Sources */,
 				041263EF2AD608EF00E9E49E /* MainView.swift in Sources */,
+				045F60902AFAD9C600AB7C8B /* LoggedEmployeeProfile.swift in Sources */,
 				04E3AC6F2AEA098500D3E631 /* AddProductView.swift in Sources */,
 				041263F82AD60B5000E9E49E /* MainViewModel.swift in Sources */,
 				041263FD2AD6229900E9E49E /* ProductCard.swift in Sources */,

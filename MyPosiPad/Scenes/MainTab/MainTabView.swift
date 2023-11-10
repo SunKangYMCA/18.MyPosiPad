@@ -27,7 +27,7 @@ struct MainTabView: View {
                         Label("Settings", systemImage: "gear")
                     }
             }
-    }
+        }
 }
 
 struct MainTabView_Previews: PreviewProvider {

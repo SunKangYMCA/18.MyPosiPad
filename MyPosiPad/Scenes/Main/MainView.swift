@@ -18,28 +18,33 @@ struct MainView: View {
     @EnvironmentObject var loggedInformation: LoginViewModel
     
     var body: some View {
-        HStack {
-            VStack {
-                filterButtons
-                productListView
-                addProductButton
+        VStack {
+            HStack {
+                LoggedEmployeeProfile(loggedEmployee: loggedInformation.loggedEmployee)
+                Spacer()
             }
-            
-            Spacer()
-            
-            VStack {
-                cartListView
-                checkoutButton
+            HStack {
+                VStack {
+                    filterButtons
+                    productListView
+                    addProductButton
+                }
+                
+                Spacer()
+                
+                VStack {
+                    cartListView
+                    checkoutButton
+                }
             }
+            .onAppear(perform: {
+                viewModel.products = viewModel.allProducts
+            })
+            
+            .padding(.horizontal, 30)
+            .environmentObject(cartListManager)
         }
-        .onAppear(perform: {
-            viewModel.products = viewModel.allProducts
-        })
-        
-        .padding(.horizontal, 30)
-        .environmentObject(cartListManager)
     }
-    
     private var filterButtons: some View {
         HStack(spacing: 20) {
             Button {
@@ -207,5 +212,6 @@ struct MainView_Previews: PreviewProvider {
         MainView()
             .environmentObject(CartListManager())
             .environmentObject(LoginViewModel())
+.previewInterfaceOrientation(.landscapeRight)
     }
 }

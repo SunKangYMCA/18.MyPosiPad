@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     
     @StateObject var viewModel: LoginViewModel = LoginViewModel()
+    @StateObject var loggedInformation: LoginViewModel = LoginViewModel()
     
     var body: some View {
         if viewModel.userDefaultsManager.isUserLogged {
@@ -26,6 +27,7 @@ struct LoginView: View {
                         MainTabView()
                     }
             }
+            .environmentObject(loggedInformation)
         }
     }
     
@@ -47,7 +49,6 @@ struct LoginView: View {
         
         Button {
             viewModel.showMainTabView()
-            print(viewModel.loggedUser)
         } label: {
             Text("***Login***")
                 .font(.title)

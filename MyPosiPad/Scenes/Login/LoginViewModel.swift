@@ -12,7 +12,7 @@ class LoginViewModel: ObservableObject {
     
     @AppStorage("USER_KEY") var userInitial = "SK"
     
-    @Published var loggedUser: String = ""
+    @Published var loggedEmployee: String = "TT"
     @Published var shouldShowMainTabView: Bool = false
     @Published var employee: Employee = Employee(initial: "", passcode: "")
 //    @Published var employees: [Employee] = [
@@ -37,7 +37,8 @@ class LoginViewModel: ObservableObject {
             if employee.passcode == "0003" {
                 employee.initial = "MS"
             }
-            loggedUser = employee.initial
+            loggedEmployee = employee.initial
+            print(employee.initial, loggedEmployee)
         } else {
             employee.passcode = ""
         }
@@ -45,7 +46,7 @@ class LoginViewModel: ObservableObject {
     
     func isSignOut() {
         userDefaultsManager.isUserLogged.toggle()
-        loggedUser = ""
+        loggedEmployee = ""
         employee.passcode = ""
     }
 }
