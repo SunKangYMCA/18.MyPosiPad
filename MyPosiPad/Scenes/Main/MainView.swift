@@ -20,7 +20,7 @@ struct MainView: View {
     var body: some View {
         VStack {
             HStack {
-                LoggedEmployeeProfile(loggedEmployee: loggedInformation.loggedEmployee)
+                LoggedEmployeeProfile(loggedEmployee: loggedInformation.userInitial)
                 Spacer()
             }
             HStack {
@@ -140,6 +140,8 @@ struct MainView: View {
                     Text("LogOut")
                         .foregroundColor(.red)
                         .bold()
+                        .padding(.horizontal, 5)
+                        .background(Color.gray.opacity(0.2).cornerRadius(15))
                 }
                 
             }
