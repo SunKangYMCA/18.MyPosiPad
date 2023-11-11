@@ -10,10 +10,9 @@ import SwiftUI
 
 class LoginViewModel: ObservableObject {
     
-    @AppStorage("USER_KEY") var userInitial = "SK"
+    @AppStorage("USER_KEY") var userInitial = ""
     
-    @Published var loggedEmployee: String = "TT"
-    @Published var shouldShowMainTabView: Bool = false
+    @Published var shouldShowMainTabView: Bool = true
     @Published var employee: Employee = Employee(initial: "", passcode: "")
 //    @Published var employees: [Employee] = [
 //        Employee(initial: "SK", passcode: "0001"),
@@ -25,28 +24,30 @@ class LoginViewModel: ObservableObject {
     private var passcodes = ["0001", "0002", "0003"]
     
     func showMainTabView() {
-        if passcodes.contains(employee.passcode) {
-            shouldShowMainTabView.toggle()
-            userDefaultsManager.isUserLogged.toggle()
             if employee.passcode == "0001" {
                 employee.initial = "SK"
+                shouldShowMainTabView = true
+                userDefaultsManager.isEmployeeLogged = true
             }
             if employee.passcode == "0002" {
                 employee.initial = "EG"
+                shouldShowMainTabView = true
+                userDefaultsManager.isEmployeeLogged = true
             }
             if employee.passcode == "0003" {
                 employee.initial = "MS"
+                shouldShowMainTabView = true
+                userDefaultsManager.isEmployeeLogged = true
             }
-            loggedEmployee = employee.initial
-            print(employee.initial, loggedEmployee)
-        } else {
-            employee.passcode = ""
+            userInitial = employee.initial
+            print(employee.initial, userInitial)
         }
-    }
+    
     
     func isSignOut() {
-        userDefaultsManager.isUserLogged.toggle()
-        loggedEmployee = ""
+        userDefaultsManager.isEmployeeLogged = false
+        shouldShowMainTabView = false
+        userInitial = ""
         employee.passcode = ""
     }
 }

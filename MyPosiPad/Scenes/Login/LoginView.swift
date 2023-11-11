@@ -13,7 +13,7 @@ struct LoginView: View {
     @StateObject var loggedInformation: LoginViewModel = LoginViewModel()
     
     var body: some View {
-        if viewModel.userDefaultsManager.isUserLogged {
+        if viewModel.userDefaultsManager.isEmployeeLogged {
             MainTabView()
         } else {
             VStack {
@@ -23,9 +23,6 @@ struct LoginView: View {
                 employeePassCodeField
                 
                 loginButton
-                    .fullScreenCover(isPresented: $viewModel.shouldShowMainTabView) {
-                        MainTabView()
-                    }
             }
             .environmentObject(loggedInformation)
         }
