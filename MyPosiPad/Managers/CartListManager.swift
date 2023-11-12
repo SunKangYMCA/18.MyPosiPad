@@ -31,7 +31,7 @@ class CartListManager: ObservableObject {
                 products = products.filter { $0.id != product.id }
             }
         }
-        totalPrice -= product.price * Double(product.quantity)
+        totalPrice -= product.price
         if products.isEmpty {
             totalPrice = 0
         }
