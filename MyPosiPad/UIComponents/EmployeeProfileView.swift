@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct LoggedEmployeeProfile: View {
+struct EmployeeProfileView: View {
     
-    var loggedEmployee: String
+    var employee: Employee
     
     var body: some View {
         ZStack {
@@ -18,7 +18,7 @@ struct LoggedEmployeeProfile: View {
                 .cornerRadius(50)
                 .opacity(0.5)
             
-            Text(loggedEmployee)
+            Text(employee.initial)
                 .foregroundColor(.white)
                 .bold()
                 .font(.title)
@@ -26,8 +26,8 @@ struct LoggedEmployeeProfile: View {
     }
 }
 
-struct LoggedEmployeeProfile_Previews: PreviewProvider {
+struct EmployeeProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        LoggedEmployeeProfile(loggedEmployee: "TT")
+        EmployeeProfileView(employee: Employee(id: "1234", initial: "Test"))
     }
 }

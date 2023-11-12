@@ -8,8 +8,6 @@
 import SwiftUI
 
 class UserDefaultsManager {
-    @AppStorage("EMPLOYEE_KEY") var isEmployeeLogged = false
-    
     static var shared = UserDefaultsManager()
     
     func saveProduct(_ product: [Product]) {

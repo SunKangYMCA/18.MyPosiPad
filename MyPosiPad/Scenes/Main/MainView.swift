@@ -15,13 +15,23 @@ struct MainView: View {
     @State var isSelectedFoods: Bool = false
     @State var isSelectedClothes: Bool = false
     @State var isSelectedHomes: Bool = false
-    @EnvironmentObject var loggedInformation: LoginViewModel
+    @EnvironmentObject var userManager: UserManager
     
     var body: some View {
         VStack {
             HStack {
-                LoggedEmployeeProfile(loggedEmployee: loggedInformation.userInitial)
+                EmployeeProfileView(employee: userManager.currentEmployee)
                 Spacer()
+                Button {
+                    userManager.signOut()
+                } label: {
+                    Text("Sign out")
+                        .foregroundColor(.red)
+                        .bold()
+                        .padding(.vertical, 16)
+                        .padding(.horizontal, 32)
+                        .background(Color.gray.opacity(0.2).cornerRadius(15))
+                }
             }
             HStack {
                 VStack {
@@ -45,6 +55,7 @@ struct MainView: View {
             .environmentObject(cartListManager)
         }
     }
+    
     private var filterButtons: some View {
         HStack(spacing: 20) {
             Button {
@@ -131,21 +142,6 @@ struct MainView: View {
     
     private var cartListView: some View {
         VStack {
-            
-            HStack {
-                Spacer()
-                Button {
-                    loggedInformation.isSignOut()
-                } label: {
-                    Text("LogOut")
-                        .foregroundColor(.red)
-                        .bold()
-                        .padding(.horizontal, 5)
-                        .background(Color.gray.opacity(0.2).cornerRadius(15))
-                }
-                
-            }
-            
             Text("List")
                 .font(.system(size: 48, weight: .bold))
             
@@ -213,7 +209,6 @@ struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
             .environmentObject(CartListManager())
-            .environmentObject(LoginViewModel())
 .previewInterfaceOrientation(.landscapeRight)
     }
 }

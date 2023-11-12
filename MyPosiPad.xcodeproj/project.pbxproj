@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		027011EE2B00827C00A36C5E /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027011ED2B00827C00A36C5E /* UserManager.swift */; };
+		027011F02B00917700A36C5E /* KeyPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027011EF2B00917700A36C5E /* KeyPadView.swift */; };
+		027011F22B00968D00A36C5E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027011F12B00968D00A36C5E /* LoginViewModel.swift */; };
 		04041E852AEDB10F0007F06C /* UserDefaultsManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04041E842AEDB10F0007F06C /* UserDefaultsManger.swift */; };
-		041263E32AD4E06400E9E49E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041263E22AD4E06400E9E49E /* LoginViewModel.swift */; };
 		041263E62AD4E18B00E9E49E /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041263E52AD4E18B00E9E49E /* Employee.swift */; };
 		041263E92AD4EA7500E9E49E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041263E82AD4EA7500E9E49E /* MainTabView.swift */; };
 		041263EC2AD608B200E9E49E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041263EB2AD608B200E9E49E /* SettingsView.swift */; };
@@ -19,7 +21,7 @@
 		041263FA2AD60F9B00E9E49E /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041263F92AD60F9B00E9E49E /* Product.swift */; };
 		041263FD2AD6229900E9E49E /* ProductCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041263FC2AD6229900E9E49E /* ProductCard.swift */; };
 		041299212AD784D800B302CB /* CartListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041299202AD784D800B302CB /* CartListManager.swift */; };
-		045F60902AFAD9C600AB7C8B /* LoggedEmployeeProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F608F2AFAD9C600AB7C8B /* LoggedEmployeeProfile.swift */; };
+		045F60902AFAD9C600AB7C8B /* EmployeeProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F608F2AFAD9C600AB7C8B /* EmployeeProfileView.swift */; };
 		04C487A62AD3528D00A068E7 /* MyPosiPadApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C487A52AD3528D00A068E7 /* MyPosiPadApp.swift */; };
 		04C487A82AD3528D00A068E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C487A72AD3528D00A068E7 /* ContentView.swift */; };
 		04C487AA2AD3529000A068E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C487A92AD3529000A068E7 /* Assets.xcassets */; };
@@ -33,8 +35,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		027011ED2B00827C00A36C5E /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		027011EF2B00917700A36C5E /* KeyPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPadView.swift; sourceTree = "<group>"; };
+		027011F12B00968D00A36C5E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		04041E842AEDB10F0007F06C /* UserDefaultsManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManger.swift; sourceTree = "<group>"; };
-		041263E22AD4E06400E9E49E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		041263E52AD4E18B00E9E49E /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		041263E82AD4EA7500E9E49E /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		041263EB2AD608B200E9E49E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -45,7 +49,7 @@
 		041263F92AD60F9B00E9E49E /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		041263FC2AD6229900E9E49E /* ProductCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCard.swift; sourceTree = "<group>"; };
 		041299202AD784D800B302CB /* CartListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartListManager.swift; sourceTree = "<group>"; };
-		045F608F2AFAD9C600AB7C8B /* LoggedEmployeeProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedEmployeeProfile.swift; sourceTree = "<group>"; };
+		045F608F2AFAD9C600AB7C8B /* EmployeeProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileView.swift; sourceTree = "<group>"; };
 		04C487A22AD3528D00A068E7 /* MyPosiPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPosiPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C487A52AD3528D00A068E7 /* MyPosiPadApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPosiPadApp.swift; sourceTree = "<group>"; };
 		04C487A72AD3528D00A068E7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -127,7 +131,8 @@
 			children = (
 				041263FC2AD6229900E9E49E /* ProductCard.swift */,
 				04E4AC7F2ADB3CE400E4D3CB /* CartListRow.swift */,
-				045F608F2AFAD9C600AB7C8B /* LoggedEmployeeProfile.swift */,
+				045F608F2AFAD9C600AB7C8B /* EmployeeProfileView.swift */,
+				027011EF2B00917700A36C5E /* KeyPadView.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 			children = (
 				04041E842AEDB10F0007F06C /* UserDefaultsManger.swift */,
 				041299202AD784D800B302CB /* CartListManager.swift */,
+				027011ED2B00827C00A36C5E /* UserManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -215,7 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				04C487BB2AD38CD400A068E7 /* LoginView.swift */,
-				041263E22AD4E06400E9E49E /* LoginViewModel.swift */,
+				027011F12B00968D00A36C5E /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -298,26 +304,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				027011F22B00968D00A36C5E /* LoginViewModel.swift in Sources */,
 				04E4AC802ADB3CE400E4D3CB /* CartListRow.swift in Sources */,
 				04041E852AEDB10F0007F06C /* UserDefaultsManger.swift in Sources */,
 				04C487A82AD3528D00A068E7 /* ContentView.swift in Sources */,
 				041299212AD784D800B302CB /* CartListManager.swift in Sources */,
 				041263F62AD6099700E9E49E /* PayView.swift in Sources */,
 				04C487A62AD3528D00A068E7 /* MyPosiPadApp.swift in Sources */,
-				041263E32AD4E06400E9E49E /* LoginViewModel.swift in Sources */,
 				041263EF2AD608EF00E9E49E /* MainView.swift in Sources */,
-				045F60902AFAD9C600AB7C8B /* LoggedEmployeeProfile.swift in Sources */,
+				045F60902AFAD9C600AB7C8B /* EmployeeProfileView.swift in Sources */,
 				04E3AC6F2AEA098500D3E631 /* AddProductView.swift in Sources */,
 				041263F82AD60B5000E9E49E /* MainViewModel.swift in Sources */,
 				041263FD2AD6229900E9E49E /* ProductCard.swift in Sources */,
 				041263EC2AD608B200E9E49E /* SettingsView.swift in Sources */,
 				041263E92AD4EA7500E9E49E /* MainTabView.swift in Sources */,
 				04D8BDF72AE782CB002DA263 /* ProductType.swift in Sources */,
+				027011F02B00917700A36C5E /* KeyPadView.swift in Sources */,
 				041263E62AD4E18B00E9E49E /* Employee.swift in Sources */,
 				04C487B42AD352EC00A068E7 /* SplashView.swift in Sources */,
 				041263F22AD6090700E9E49E /* PaymentHistoryView.swift in Sources */,
 				04C487BC2AD38CD400A068E7 /* LoginView.swift in Sources */,
 				04C487B92AD3535400A068E7 /* SplashViewModel.swift in Sources */,
+				027011EE2B00827C00A36C5E /* UserManager.swift in Sources */,
 				041263FA2AD60F9B00E9E49E /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

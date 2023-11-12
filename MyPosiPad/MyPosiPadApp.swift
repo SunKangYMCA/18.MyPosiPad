@@ -9,11 +9,11 @@ import SwiftUI
 
 @main
 struct MyPosiPadApp: App {
-    @StateObject var loggedInformation: LoginViewModel = LoginViewModel()
+    @StateObject var userManager = UserManager()
     var body: some Scene {
         WindowGroup {
             SplashView()
-                .environmentObject(loggedInformation)
+                .environmentObject(userManager)
         }
     }
 }
