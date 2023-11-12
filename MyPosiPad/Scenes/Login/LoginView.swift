@@ -9,47 +9,58 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @StateObject var viewModel: LoginViewModel = LoginViewModel()
-    @StateObject var loggedInformation: LoginViewModel = LoginViewModel()
+    // Technical design 
+    // Architecture
+    @EnvironmentObject var userManager: UserManager
+    @StateObject private var viewModel = LoginViewModel()
     
     var body: some View {
-        if viewModel.userDefaultsManager.isEmployeeLogged {
+        if userManager.isLoggedIn {
             MainTabView()
         } else {
             VStack {
-                Text("Employee Pass Code")
+                Text("MY POS")
                     .font(.system(size: UIScreen.main.bounds.width * 0.1, weight: .bold))
                 
-                employeePassCodeField
+                keypadSection
                 
                 loginButton
             }
-            .environmentObject(loggedInformation)
+            .onAppear {
+                viewModel.initialize(userManager: userManager)
+            }
         }
     }
     
-    private var employeePassCodeField: some View {
-        
-        TextField("passcode", text: $viewModel.employee.passcode, prompt: Text("EmployCode 4 digits, ex) 0001, 0002, 0003"))
-            .padding(30)
-            .background(
-                Color.green
-                    .opacity(0.2)
-                    .cornerRadius(15)
-                    .shadow(radius: 5)
-            )
-            .padding([.leading, .trailing], 200)
-            .keyboardType(.phonePad)
+    private var keypadSection: some View {
+        VStack {
+            HStack {
+                Spacer()
+                Text(viewModel.employeeID)
+                    .tracking(64)
+                    .foregroundStyle(viewModel.showAuthError ? .red : .primary)
+                Spacer()
+            }
+            .frame(height: 72)
+            Divider()
+            KeyPadView(string: $viewModel.employeeID) {
+                viewModel.onKeyPadTap()
+            }
+        }
+        .padding(.horizontal, UIScreen.main.bounds.width * 0.2)
+        .font(.largeTitle)
+        .padding()
     }
     
     private var loginButton: some View {
         
         Button {
-            viewModel.showMainTabView()
+            viewModel.onSignInTap()
         } label: {
-            Text("***Login***")
+            Text("Sign In")
                 .font(.title)
-                .padding()
+                .padding(.vertical, 16)
+                .padding(.horizontal, 32)
                 .foregroundColor(.white)
                 .background(
                     Color.blue
