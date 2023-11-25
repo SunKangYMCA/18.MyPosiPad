@@ -184,7 +184,9 @@ struct MainView: View {
                 )
         }
         .sheet(isPresented: $viewModel.showAddProductView) {
-            AddProductView()
+            AddProductView { newProduct in
+                viewModel.allProducts.append(newProduct)
+            }
         }
     }
     

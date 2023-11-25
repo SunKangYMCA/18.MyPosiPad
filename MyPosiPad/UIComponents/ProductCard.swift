@@ -19,16 +19,23 @@ struct ProductCard: View {
                         .opacity(0.7)
                         .cornerRadius(20)
                     
-                    Image(product.smallPicture)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 150)
-                        .background(
-                            
-                            Color.white
-                        )
-                        .cornerRadius(20)
-                        .padding()
+                    if product.smallPicture.isEmpty {
+                        Image(systemName: "photo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 150)
+                            .background(Color.white)
+                            .cornerRadius(20)
+                            .padding()
+                    } else {
+                        Image(product.smallPicture)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 150)
+                            .background(Color.white)
+                            .cornerRadius(20)
+                            .padding()
+                    }
                 }
                 
                 VStack(alignment: .leading) {

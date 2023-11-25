@@ -8,24 +8,27 @@
 import SwiftUI
 
 struct AddProductView: View {
+    // 클로저를 사용해서 product를 보내주기
+    //1. append할 곳 확인 후 add button 활성화 ok
+    //2. button 누르면 화면 사라지고 추가된 product 화면에 표시되게 하기
+    //3. 저장하기
+    //4. card 꾹누르면 product 제거 가능하게 하기
+    //5.
     
     @State var product: Product = Product(name: "", price: 0.0, quantity: 0, smallPicture: "", largePicture: "", type: ProductType.foods, size: "", color: "")
-    
+    var onAddNewProduct: (Product) -> ()
     
     var body: some View {
         VStack(alignment: .center, spacing: 30) {
-            productImageAddView
+            Text("Add New Product")
+                .foregroundColor(.brown)
+                .font(.system(size: 32, weight: .bold))
             
             productInfomationAddView
             
-            productAddButton
+            addNewProductButton
             
         }
-    }
-    
-    
-    private var productImageAddView: some View {
-        Image(systemName: "person")
     }
     
     private var productInfomationAddView: some View {
@@ -51,20 +54,6 @@ struct AddProductView: View {
                 }
                 
                 HStack {
-                    Text("SmallPicture:  ")
-                    TextField("ProductSmallPicture", text: $product.smallPicture)
-                        .textFieldStyle(.roundedBorder)
-                        .buttonStyle(.bordered)
-                }
-                
-                HStack {
-                    Text("LargePicture:  ")
-                    TextField("ProductLargePicture", text: $product.largePicture)
-                        .textFieldStyle(.roundedBorder)
-                        .buttonStyle(.bordered)
-                }
-                
-                HStack {
                     Text("Type:  ")
                     Picker("Type", selection: $product.type) {
                         ForEach(ProductType.allCases) { type in
@@ -75,14 +64,14 @@ struct AddProductView: View {
                 
                 HStack {
                     Text("Size:  ")
-                    TextField("Product size", text: $product.size)
+                    TextField("Product size, selectable", text: $product.size)
                         .textFieldStyle(.roundedBorder)
                         .buttonStyle(.bordered)
                 }
                 
                 HStack {
                     Text("Color:  ")
-                    TextField("Product Color", text: $product.color)
+                    TextField("Product Color, selectable", text: $product.color)
                         .textFieldStyle(.roundedBorder)
                         .buttonStyle(.bordered)
                 }
@@ -91,10 +80,10 @@ struct AddProductView: View {
         .padding(.horizontal, 100)
     }
     
-    private var productAddButton: some View {
+    private var addNewProductButton: some View {
         
         Button {
-
+            onAddNewProduct(product)
         } label: {
             Text("add New Product")
                 .font(.system(size: 32, weight: .heavy))
@@ -111,6 +100,6 @@ struct AddProductView: View {
 
 struct AddProductView_Previews: PreviewProvider {
     static var previews: some View {
-        AddProductView()
+        AddProductView(onAddNewProduct: { _ in})
     }
 }

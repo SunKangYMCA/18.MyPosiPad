@@ -24,7 +24,6 @@ class CartListManager: ObservableObject {
     func removeFromCartList(product: Product) {
         if let index = products.firstIndex(where: {$0.id == product.id}) {
             products[index].quantity -= 1
-            totalPrice -= products[index].price
             if products[index].quantity == 0 {
                 products = products.filter({$0.id != product.id})
             }
