@@ -8,14 +8,11 @@
 import Foundation
 
 class CartListManager: ObservableObject {
-    
     @Published var products: [Product] = []
     @Published var totalPrice: Double = 0
     
-    static var shared = CartListManager()
-    
     func addToCartList(product: Product) {
-        if let index = products.firstIndex(where: { $0.id == product.id }) {
+        if let index = products.firstIndex(where: {$0.id == product.id}) {
             products[index].quantity += 1
             totalPrice += products[index].price
         } else {
@@ -24,16 +21,14 @@ class CartListManager: ObservableObject {
         }
     }
     
-    func removeFromeCartList(product: Product) {
-        if let index = products.firstIndex(where: { $0.id == product.id }) {
+    func removeFromCartList(product: Product) {
+        if let index = products.firstIndex(where: {$0.id == product.id}) {
             products[index].quantity -= 1
+            totalPrice -= products[index].price
             if products[index].quantity == 0 {
-                products = products.filter { $0.id != product.id }
+                products = products.filter({$0.id != product.id})
             }
         }
         totalPrice -= product.price
-        if products.isEmpty {
-            totalPrice = 0
-        }
     }
 }

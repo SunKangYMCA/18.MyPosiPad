@@ -34,7 +34,7 @@ struct CartListRow: View {
             Text("X \(product.quantity)")
             
             Button {
-                cartListManager.removeFromeCartList(product: product)
+                cartListManager.removeFromCartList(product: product)
             } label: {
                 Image(systemName: "trash")
                     .foregroundColor(.red.opacity(0.6))
