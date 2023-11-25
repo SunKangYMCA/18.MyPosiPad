@@ -14,13 +14,24 @@ struct CartListRow: View {
     
     var body: some View {
         HStack(spacing: 10) {
-            Image(product.smallPicture)
-                .resizable()
-                .frame(width: 50, height: 80)
-                .background(Color.white)
-                .cornerRadius(15)
-                .padding()
-                .shadow(radius: 5)
+            if product.smallPicture.isEmpty {
+                Image(systemName: "photo")
+                    .resizable()
+                    .frame(width: 30, height: 60)
+                    .padding(10)
+                    .background(Color.white)
+                    .cornerRadius(15)
+                    .padding()
+                    .shadow(radius: 5)
+            } else {
+                Image(product.smallPicture)
+                    .resizable()
+                    .frame(width: 50, height: 80)
+                    .background(Color.white)
+                    .cornerRadius(15)
+                    .padding()
+                    .shadow(radius: 5)
+            }
             
             VStack(alignment: .leading, spacing: 10) {
                 Text(product.name)
