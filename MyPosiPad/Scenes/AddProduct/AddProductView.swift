@@ -8,12 +8,6 @@
 import SwiftUI
 
 struct AddProductView: View {
-    // 클로저를 사용해서 product를 보내주기
-    //1. append할 곳 확인 후 add button 활성화 ok
-    //2. button 누르면 화면 사라지고 추가된 product 화면에 표시되게 하기
-    //3. 저장하기
-    //4. card 꾹누르면 product 제거 가능하게 하기
-    //5.
     
     @State var product: Product = Product(name: "", price: 0.0, quantity: 0, smallPicture: "", largePicture: "", type: ProductType.foods, size: "", color: "")
     var onAddNewProduct: (Product) -> ()

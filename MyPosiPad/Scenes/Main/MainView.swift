@@ -9,6 +9,13 @@ import SwiftUI
 
 struct MainView: View {
     
+    // 클로저를 사용해서 product를 보내주기(Set to MVVM)
+    //ok 1. append할 곳 확인 후 add button 활성화
+    //ok 2. button 누르면 화면 사라지고 추가된 product 화면에 표시되게 하기
+    //3. 저장하기
+    //4. card 꾹누르면 product 제거 가능하게 하기
+    //5.
+    
     @StateObject var viewModel: MainViewModel = MainViewModel()
     @StateObject var cartListManager: CartListManager = CartListManager()
     @State var isSelectedAll: Bool = false
@@ -185,7 +192,7 @@ struct MainView: View {
         }
         .sheet(isPresented: $viewModel.showAddProductView) {
             AddProductView { newProduct in
-                viewModel.allProducts.append(newProduct)
+                viewModel.addNewProduct(newProduct)
             }
         }
     }

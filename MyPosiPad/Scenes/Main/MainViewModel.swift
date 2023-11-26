@@ -30,12 +30,23 @@ class MainViewModel: ObservableObject {
         Product(name: "Tissue", price: 0.19, quantity: 1, smallPicture: "TissueSmall", largePicture: "TissueLarge", type: .homes, size: "20*100mm", color: "White"),
         Product(name: "BarSoap", price: 3.99, quantity: 1, smallPicture: "BarSoapSmall", largePicture: "BarSoapLarge", type: .homes, size: "None", color: "Green"),
         Product(name: "Detergent", price: 12.99, quantity: 1, smallPicture: "DetergentSmall", largePicture: "DetergentLarge", type: .homes, size: "4L", color: "Red"),
-        ]
+    ] {
+        
+        didSet {
+            UserDefaultsManager.shared.saveProduct(allProducts)
+        }
+    }
     
     @Published var products: [Product] = []
     
     func showFilter (type: ProductType) {
         products = allProducts
         products = products.filter { $0.type == type }
+    }
+        
+    func addNewProduct(_ product: Product) {
+        allProducts.append(product)
+        showAddProductView.toggle()
+        products = allProducts    
     }
 }
