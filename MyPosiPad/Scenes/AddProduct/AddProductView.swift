@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddProductView: View {
     
-    @State var product: Product = Product(name: "", price: 0.0, quantity: 0, smallPicture: "", largePicture: "", type: ProductType.foods, size: "", color: "")
+    @State var product: Product = Product(name: "", price: 1, quantity: 1, smallPicture: "", largePicture: "", type: ProductType.foods, size: "", color: "")
     var onAddNewProduct: (Product) -> ()
     
     var body: some View {
@@ -37,13 +37,7 @@ struct AddProductView: View {
                 
                 HStack {
                     Text("Price:  $")
-                    TextField("ProductpPrice ex)$ 0.00", value: $product.price, format: .number)
-                        .textFieldStyle(.roundedBorder)
-                }
-                
-                HStack {
-                    Text("Quantity:  ")
-                    TextField("ProductQuantity ex) 1", value: $product.quantity, format: .number)
+                    TextField("ProductpPrice ex)$ 0.00", value: $product.price, formatter: NumberFormatter())
                         .textFieldStyle(.roundedBorder)
                 }
                 
@@ -51,9 +45,11 @@ struct AddProductView: View {
                     Text("Type:  ")
                     Picker("Type", selection: $product.type) {
                         ForEach(ProductType.allCases) { type in
-                            Text(type.title)
-                                }
+                            if type != .all {
+                                Text(type.title)
                             }
+                        }
+                    }
                 }
                 
                 HStack {
