@@ -10,6 +10,8 @@ import SwiftUI
 class MainViewModel: ObservableObject {
     
     @Published var showAddProductView: Bool = false
+    @Published var selectedFilterType: ProductType = .all
+    @Published var intArrey: [Double] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     
     let columns: [GridItem] = [
         GridItem(.fixed(200)),
@@ -34,19 +36,37 @@ class MainViewModel: ObservableObject {
         
         didSet {
             UserDefaultsManager.shared.saveProduct(allProducts)
+            print("##allProduct is \(allProducts.count)##")
+        }
+    }
+    init() {
+        let savedProduct = UserDefaultsManager.shared.loadProducts()
+        if !savedProduct.isEmpty {
+            allProducts = savedProduct
         }
     }
     
     @Published var products: [Product] = []
     
-    func showFilter (type: ProductType) {
+    private func filterProduct(type: ProductType) {
         products = allProducts
-        products = products.filter { $0.type == type }
+        if type != .all {
+            products = products.filter { $0.type == type }
+        }
     }
         
-    func addNewProduct(_ product: Product) {
-        allProducts.append(product)
-        showAddProductView.toggle()
-        products = allProducts    
+    func onFilterButtonTap(type: ProductType) {
+        filterProduct(type: type)
+        selectedFilterType = type
     }
+    
+    func addNewProduct(_ product: Product) {
+        if !product.name.isEmpty {
+//            && product.price == intArrey {
+            allProducts.append(product)
+            showAddProductView.toggle()
+            products = allProducts
+        }
+    }
+    
 }

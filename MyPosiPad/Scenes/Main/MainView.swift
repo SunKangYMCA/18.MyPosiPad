@@ -8,20 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
-    
-    // 클로저를 사용해서 product를 보내주기(Set to MVVM)
-    //ok 1. append할 곳 확인 후 add button 활성화
-    //ok 2. button 누르면 화면 사라지고 추가된 product 화면에 표시되게 하기
-    //3. 저장하기
-    //4. card 꾹누르면 product 제거 가능하게 하기
-    //5.
-    
     @StateObject var viewModel: MainViewModel = MainViewModel()
     @StateObject var cartListManager: CartListManager = CartListManager()
-    @State var isSelectedAll: Bool = false
-    @State var isSelectedFoods: Bool = false
-    @State var isSelectedClothes: Bool = false
-    @State var isSelectedHomes: Bool = false
     @EnvironmentObject var userManager: UserManager
     
     var body: some View {
@@ -66,65 +54,49 @@ struct MainView: View {
     private var filterButtons: some View {
         HStack(spacing: 20) {
             Button {
-                viewModel.products = viewModel.allProducts
-                isSelectedAll = true
-                isSelectedFoods = false
-                isSelectedClothes = false
-                isSelectedHomes = false
+                viewModel.onFilterButtonTap(type: .all)
             } label: {
                 Text("All")
                     .font(.system(size: 24, weight: .bold))
                     .padding()
                     .background(
-                        isSelectedAll ? Color.red.opacity(0.3) : Color.indigo.opacity(0.3)
+                        viewModel.selectedFilterType == .all ? Color.red.opacity(0.3) : Color.indigo.opacity(0.3)
                     )
                     .cornerRadius(15)
             }
             
             Button {
-                viewModel.showFilter(type: .foods)
-                isSelectedAll = false
-                isSelectedFoods = true
-                isSelectedClothes = false
-                isSelectedHomes = false
+                viewModel.onFilterButtonTap(type: .foods)
             } label: {
                 Text("Foods")
                     .font(.system(size: 24, weight: .bold))
                     .padding()
                     .background(
-                        isSelectedFoods ? Color.red.opacity(0.3) : Color.indigo.opacity(0.3)
+                        viewModel.selectedFilterType == .foods ? Color.red.opacity(0.3) : Color.indigo.opacity(0.3)
                     )
                     .cornerRadius(15)
             }
             
             Button {
-                viewModel.showFilter(type: .clothes)
-                isSelectedAll = false
-                isSelectedFoods = false
-                isSelectedClothes = true
-                isSelectedHomes = false
+                viewModel.onFilterButtonTap(type: .clothes)
             } label: {
                 Text("Clothes")
                     .font(.system(size: 24, weight: .bold))
                     .padding()
                     .background(
-                        isSelectedClothes ? Color.red.opacity(0.3) : Color.indigo.opacity(0.3)
+                        viewModel.selectedFilterType == .clothes ? Color.red.opacity(0.3) : Color.indigo.opacity(0.3)
                     )
                     .cornerRadius(15)
             }
             
             Button {
-                viewModel.showFilter(type: .homes)
-                isSelectedAll = false
-                isSelectedFoods = false
-                isSelectedClothes = false
-                isSelectedHomes = true
+                viewModel.onFilterButtonTap(type: .homes)
             } label: {
                 Text("Homes")
                     .font(.system(size: 24, weight: .bold))
                     .padding()
                     .background(
-                        isSelectedHomes ? Color.red.opacity(0.3) : Color.indigo.opacity(0.3)
+                        viewModel.selectedFilterType == .homes ? Color.red.opacity(0.3) : Color.indigo.opacity(0.3)
                     )
                     .cornerRadius(15)
             }
@@ -179,6 +151,7 @@ struct MainView: View {
     private var addProductButton: some View {
         Button {
             viewModel.showAddProductView.toggle()
+            viewModel.selectedFilterType = .all
         } label: {
             Text("add New Product")
                 .font(.system(size: 32, weight: .heavy))

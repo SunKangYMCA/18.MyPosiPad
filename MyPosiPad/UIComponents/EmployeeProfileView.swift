@@ -11,6 +11,10 @@ struct EmployeeProfileView: View {
     
     var employee: Employee
     
+    init(employee: Employee) {
+        self.employee = employee
+    }
+    
     var body: some View {
         ZStack {
             Color.black
