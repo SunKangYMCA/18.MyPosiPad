@@ -11,7 +11,6 @@ class MainViewModel: ObservableObject {
     
     @Published var showAddProductView: Bool = false
     @Published var selectedFilterType: ProductType = .all
-    @Published var intArrey: [Double] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     
     let columns: [GridItem] = [
         GridItem(.fixed(200)),
@@ -61,8 +60,9 @@ class MainViewModel: ObservableObject {
     }
     
     func addNewProduct(_ product: Product) {
-        if !product.name.isEmpty {
-//            && product.price == intArrey {
+        
+        if !product.name.isEmpty
+            && product.price > 0 {            
             allProducts.append(product)
             showAddProductView.toggle()
             products = allProducts

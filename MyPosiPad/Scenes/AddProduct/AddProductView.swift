@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddProductView: View {
     
-    @State var product: Product = Product(name: "", price: 1, quantity: 1, smallPicture: "", largePicture: "", type: ProductType.foods, size: "", color: "")
+    @State var product: Product = Product(name: "", price: 0, quantity: 1, smallPicture: "", largePicture: "", type: ProductType.foods, size: "", color: "")
     var onAddNewProduct: (Product) -> ()
     
     var body: some View {
