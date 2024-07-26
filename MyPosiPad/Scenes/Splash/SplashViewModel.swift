@@ -11,7 +11,7 @@ class SplashViewModel: ObservableObject {
     @Published var shouldShowLoginView: Bool = false
     
     func showLoginView() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.shouldShowLoginView = true
         }
     }

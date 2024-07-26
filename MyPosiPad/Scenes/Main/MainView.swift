@@ -39,7 +39,7 @@ struct MainView: View {
                 
                 VStack {
                     cartListView
-                    checkoutButton
+                    checkOutButton
                 }
             }
             .onAppear(perform: {
@@ -170,7 +170,7 @@ struct MainView: View {
         }
     }
     
-    private var checkoutButton: some View {
+    private var checkOutButton: some View {
         NavigationLink {
             PayView()
         } label: {
@@ -191,6 +191,7 @@ struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
             .environmentObject(CartListManager())
-.previewInterfaceOrientation(.landscapeRight)
+            .previewInterfaceOrientation(.landscapeRight)
+            .environmentObject(UserManager())
     }
 }

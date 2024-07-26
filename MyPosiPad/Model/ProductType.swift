@@ -8,10 +8,10 @@
 import SwiftUI
 
 enum ProductType: Codable, CaseIterable, Identifiable {
-case all, foods, clothes, homes
+    case all, foods, clothes, homes
     
     var id: Self {
-       self
+        self
     }
     
     var title: String {
