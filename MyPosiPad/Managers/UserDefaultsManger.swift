@@ -19,8 +19,8 @@ class UserDefaultsManager {
     }
     
     func loadProducts() -> [Product] {
-        if let sevedProducts = defaults.data(forKey: "SAVE") {
-            if let decodedProducts = try? JSONDecoder().decode([Product].self, from: sevedProducts) {
+        if let savedProducts = defaults.data(forKey: "SAVE") {
+            if let decodedProducts = try? JSONDecoder().decode([Product].self, from: savedProducts) {
                 return decodedProducts
             }
         }
