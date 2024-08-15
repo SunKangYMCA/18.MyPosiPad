@@ -32,6 +32,8 @@
 		04C487B92AD3535400A068E7 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C487B82AD3535400A068E7 /* SplashViewModel.swift */; };
 		04C487BC2AD38CD400A068E7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C487BB2AD38CD400A068E7 /* LoginView.swift */; };
 		04D8BDF72AE782CB002DA263 /* ProductType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D8BDF62AE782CB002DA263 /* ProductType.swift */; };
+		04DBF5032C6D9E2F0062EACD /* BackGroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DBF5022C6D9E2F0062EACD /* BackGroundColor.swift */; };
+		04DBF5052C6D9E610062EACD /* TaxRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DBF5042C6D9E610062EACD /* TaxRate.swift */; };
 		04E4AC802ADB3CE400E4D3CB /* CartListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E4AC7F2ADB3CE400E4D3CB /* CartListRow.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,8 @@
 		04C487B82AD3535400A068E7 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		04C487BB2AD38CD400A068E7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		04D8BDF62AE782CB002DA263 /* ProductType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductType.swift; sourceTree = "<group>"; };
+		04DBF5022C6D9E2F0062EACD /* BackGroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackGroundColor.swift; sourceTree = "<group>"; };
+		04DBF5042C6D9E610062EACD /* TaxRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxRate.swift; sourceTree = "<group>"; };
 		04E4AC7F2ADB3CE400E4D3CB /* CartListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartListRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +87,8 @@
 				041263F92AD60F9B00E9E49E /* Product.swift */,
 				04D8BDF62AE782CB002DA263 /* ProductType.swift */,
 				04A8D36C2B2B9AB3007416E7 /* ScreenState.swift */,
+				04DBF5022C6D9E2F0062EACD /* BackGroundColor.swift */,
+				04DBF5042C6D9E610062EACD /* TaxRate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -313,6 +319,7 @@
 				041263EC2AD608B200E9E49E /* SettingsView.swift in Sources */,
 				04347EDC2C12CE800079470C /* AddProductView.swift in Sources */,
 				04A8D36D2B2B9AB3007416E7 /* ScreenState.swift in Sources */,
+				04DBF5032C6D9E2F0062EACD /* BackGroundColor.swift in Sources */,
 				041263E92AD4EA7500E9E49E /* MainTabView.swift in Sources */,
 				04D8BDF72AE782CB002DA263 /* ProductType.swift in Sources */,
 				027011F02B00917700A36C5E /* KeyPadView.swift in Sources */,
@@ -323,6 +330,7 @@
 				04C487B92AD3535400A068E7 /* SplashViewModel.swift in Sources */,
 				027011EE2B00827C00A36C5E /* UserManager.swift in Sources */,
 				041263FA2AD60F9B00E9E49E /* Product.swift in Sources */,
+				04DBF5052C6D9E610062EACD /* TaxRate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +470,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -493,6 +502,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

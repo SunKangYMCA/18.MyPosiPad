@@ -8,12 +8,16 @@
 import SwiftUI
 
 @main
-struct MyPosiPadApp: App {
-    @StateObject var userManager = UserManager()
+struct MyPos_settingpageApp: App {
+    @StateObject var cartListManager: CartListManager = CartListManager()
+    @StateObject var userManager: UserManager = UserManager()
+    @StateObject var mainViewModel: MainViewModel = MainViewModel()
     var body: some Scene {
         WindowGroup {
             SplashView()
                 .environmentObject(userManager)
+                .environmentObject(mainViewModel)
+                .environmentObject(cartListManager)
         }
     }
 }

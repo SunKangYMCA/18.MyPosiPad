@@ -17,7 +17,7 @@ struct CartListRow: View {
             if product.smallPicture.isEmpty {
                 Image(systemName: "photo")
                     .resizable()
-                    .frame(width: 30, height: 60)
+                    .frame(width: 80, height: 80)
                     .padding(10)
                     .background(Color.white)
                     .cornerRadius(15)
@@ -26,7 +26,8 @@ struct CartListRow: View {
             } else {
                 Image(product.smallPicture)
                     .resizable()
-                    .frame(width: 50, height: 80)
+                    .frame(width: 80, height: 80)
+                    .padding(10)
                     .background(Color.white)
                     .cornerRadius(15)
                     .padding()

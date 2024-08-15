@@ -28,43 +28,42 @@ struct AddProductView: View {
     private var productInfomationAddView: some View {
         
         VStack(alignment: .center, spacing: 20) {
-            VStack(alignment: .leading, spacing: 30) {
-                HStack {
-                    Text("Name:  ")
-                    TextField("Name", text: $product.name)
-                        .textFieldStyle(.roundedBorder)
-                }
-                
-                HStack {
-                    Text("Price:  $")
-                    TextField("ProductpPrice ex)$ 0.00", value: $product.price, formatter: NumberFormatter())
-                        .textFieldStyle(.roundedBorder)
-                }
-                
-                HStack {
-                    Text("Type:  ")
-                    Picker("Type", selection: $product.type) {
-                        ForEach(ProductType.allCases) { type in
-                            if type != .all {
-                                Text(type.title)
-                            }
+            HStack {
+                Text("Name:  ")
+                TextField("Name", text: $product.name)
+                    .textFieldStyle(.roundedBorder)
+            }
+            
+            HStack {
+                Text("Price:  $")
+                TextField("ProductpPrice ex)$ 0.00", value: $product.price, formatter: NumberFormatter())
+                    .textFieldStyle(.roundedBorder)
+            }
+            
+            HStack {
+                Text("Type:  ")
+                Picker("Type", selection: $product.type) {
+                    ForEach(ProductType.allCases) { type in
+                        if type != .all {
+                            Text(type.title)
                         }
                     }
                 }
-                
-                HStack {
-                    Text("Size:  ")
-                    TextField("Product Size, selectable", text: $product.size)
-                        .textFieldStyle(.roundedBorder)
-                        .buttonStyle(.bordered)
-                }
-                
-                HStack {
-                    Text("Color:  ")
-                    TextField("Product Color, selectable", text: $product.color)
-                        .textFieldStyle(.roundedBorder)
-                        .buttonStyle(.bordered)
-                }
+                Spacer()
+            }
+            
+            HStack {
+                Text("Size:  ")
+                TextField("Product Size, selectable", text: $product.size)
+                    .textFieldStyle(.roundedBorder)
+                    .buttonStyle(.bordered)
+            }
+            
+            HStack {
+                Text("Color:  ")
+                TextField("Product Color, selectable", text: $product.color)
+                    .textFieldStyle(.roundedBorder)
+                    .buttonStyle(.bordered)
             }
         }
         .padding(.horizontal, 100)

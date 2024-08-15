@@ -6,11 +6,17 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 class MainViewModel: ObservableObject {
     
     @Published var showAddProductView: Bool = false
     @Published var selectedFilterType: ProductType = .all
+    @Published var products: [Product] = []
+    @Published var backGroundColor: BackGroundColor = .white
+    @Published var shopName: String = "Shop Name"
+    @Published var benner: PhotosPickerItem?
+    @Published var bennerImage: Image = Image("sky")
     
     let columns: [GridItem] = [
         GridItem(.fixed(200)),
@@ -34,7 +40,7 @@ class MainViewModel: ObservableObject {
     ] {
         
         didSet {
-            UserDefaultsManager.shared.saveProduct(allProducts)
+            UserDefaultsManager.shared.saveProducts(allProducts)
             print("##allProduct is \(allProducts.count)##")
         }
     }
@@ -44,8 +50,6 @@ class MainViewModel: ObservableObject {
             allProducts = savedProducts
         }
     }
-    
-    @Published var products: [Product] = []
     
     private func filterProduct(type: ProductType) {
         products = allProducts
