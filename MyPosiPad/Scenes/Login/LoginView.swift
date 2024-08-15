@@ -9,27 +9,28 @@ import SwiftUI
 
 struct LoginView: View {
     
-    // Technical design 
-    // Architecture
+    @StateObject private var viewModel: LoginViewModel = LoginViewModel()
     @EnvironmentObject var userManager: UserManager
-    @StateObject private var viewModel = LoginViewModel()
     
     var body: some View {
-        if userManager.isLoggedIn {
-            MainTabView()
-        } else {
-            VStack {
-                Text("MY POS")
-                    .font(.system(size: UIScreen.main.bounds.width * 0.1, weight: .bold))
-                
-                keypadSection
-                
-                loginButton
-            }
-            .onAppear {
-                viewModel.initialize(userManager: userManager)
+        VStack {
+            if userManager.isLoggedIn {
+                MainTabView()
+            } else {
+                VStack {
+                    Text("MY POS")
+                        .font(.system(size: UIScreen.main.bounds.width * 0.1, weight: .bold))
+                    
+                    keypadSection
+                    
+                    loginButton
+                }
+                .onAppear {
+                    viewModel.initialize(userManager: userManager)
+                }
             }
         }
+        .environmentObject(userManager)
     }
     
     private var keypadSection: some View {

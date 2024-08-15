@@ -9,17 +9,15 @@ import SwiftUI
 
 class UserDefaultsManager {
     static let shared = UserDefaultsManager()
-    
-    private let defaults = UserDefaults.standard
 
-    func saveProduct(_ product: [Product]) {
+    func saveProducts(_ product: [Product]) {
         if let data = try? JSONEncoder().encode(product) {
-            defaults.set(data, forKey: "SAVE")
+            UserDefaults.standard.set(data, forKey: "SAVE")
         }
     }
     
     func loadProducts() -> [Product] {
-        if let savedProducts = defaults.data(forKey: "SAVE") {
+        if let savedProducts = UserDefaults.standard.data(forKey: "SAVE") {
             if let decodedProducts = try? JSONDecoder().decode([Product].self, from: savedProducts) {
                 return decodedProducts
             }

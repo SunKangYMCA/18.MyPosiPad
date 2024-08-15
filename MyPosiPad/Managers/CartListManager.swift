@@ -10,15 +10,16 @@ import Foundation
 class CartListManager: ObservableObject {
     @Published var products: [Product] = []
     @Published var totalPrice: Double = 0
+    @Published var totalTax: Double = 0
+    @Published var taxRate: TaxRate = .five
     
     func addToCartList(product: Product) {
         if let index = products.firstIndex(where: {$0.id == product.id}) {
             products[index].quantity += 1
-            totalPrice += products[index].price
         } else {
             products.append(product)
-            totalPrice += product.price
         }
+        totalPrice += product.price
     }
     
     func removeFromCartList(product: Product) {
@@ -29,5 +30,10 @@ class CartListManager: ObservableObject {
             }
         }
         totalPrice -= product.price
+        totalTax -= product.price * taxRate.rate
+    }
+    
+    func showTotalTax() {
+        totalTax = totalPrice * taxRate.rate
     }
 }

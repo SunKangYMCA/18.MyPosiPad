@@ -8,46 +8,72 @@
 import SwiftUI
 
 struct MainView: View {
-    @StateObject var viewModel: MainViewModel = MainViewModel()
-    @StateObject var cartListManager: CartListManager = CartListManager()
+
+    @EnvironmentObject var cartListManager: CartListManager
     @EnvironmentObject var userManager: UserManager
+    @EnvironmentObject var viewModel: MainViewModel
     
     var body: some View {
-        VStack {
-            HStack {
-                EmployeeProfileView(employee: userManager.currentEmployee)
-                Spacer()
-                Button {
-                    userManager.signOut()
-                } label: {
-                    Text("Sign out")
-                        .foregroundColor(.red)
-                        .bold()
-                        .padding(.vertical, 16)
-                        .padding(.horizontal, 32)
-                        .background(Color.gray.opacity(0.2).cornerRadius(15))
+        ZStack {
+            viewModel.backGroundColor.color
+                .ignoresSafeArea()
+                .opacity(0.2)
+                .cornerRadius(20)
+            VStack {
+                HStack {
+                    EmployeeProfileView(employee: userManager.currentEmployee)
+                    
+                    Spacer()
+                    
+                    Text(viewModel.shopName)
+                        .font(.system(size: 48, weight: .bold))
+                        .padding(5)
+                        .background(
+                            Color.white
+                                .opacity(0.5)
+                                .cornerRadius(20)
+                        )
+                    
+                    Spacer()
+                    
+                    Button {
+                        userManager.signOut()
+                    } label: {
+                        Text("Sign out")
+                            .foregroundColor(.red)
+                            .bold()
+                            .padding(.vertical, 16)
+                            .padding(.horizontal, 32)
+                            .background(Color.gray.opacity(0.2).cornerRadius(15))
+                    }
                 }
-            }
-            HStack {
-                VStack {
-                    filterButtons
-                    productListView
-                    addProductButton
+                .background(
+                  viewModel.bennerImage
+                        .resizable()
+                        .frame(height: 80)
+                        .cornerRadius(15)
+                )
+                HStack {
+                    VStack {
+                        filterButtons
+                        productListView
+                        addProductButton
+                    }
+                    
+                    Spacer()
+                    
+                    VStack {
+                        cartListView
+                        checkOutButton
+                    }
+                }
+                .onAppear {
+                    viewModel.products = viewModel.allProducts
                 }
                 
-                Spacer()
-                
-                VStack {
-                    cartListView
-                    checkOutButton
-                }
+                .padding(.horizontal, 30)
+                .environmentObject(cartListManager)
             }
-            .onAppear(perform: {
-                viewModel.products = viewModel.allProducts
-            })
-            
-            .padding(.horizontal, 30)
-            .environmentObject(cartListManager)
         }
     }
     
@@ -109,9 +135,9 @@ struct MainView: View {
                 ForEach(viewModel.products, id: \.id) { product in
                     Button {
                         cartListManager.addToCartList(product: product)
+                        cartListManager.showTotalTax()
                     } label: {
                         ProductCard(product: product)
-                            .foregroundColor(.black)
                     }
                     .padding()
                 }
@@ -140,6 +166,7 @@ struct MainView: View {
                         
                         Text("$" + String(format: "%.2f", cartListManager.totalPrice))
                             .bold()
+                        Text("Tax" + String(format: "%.2f", cartListManager.totalTax))
                     }
                 } else {
                     Text("This list is still empty. Please select.")
@@ -164,8 +191,10 @@ struct MainView: View {
                 )
         }
         .sheet(isPresented: $viewModel.showAddProductView) {
-            AddProductView { newProduct in
-                viewModel.addNewProduct(newProduct)
+            if viewModel.showAddProductView {
+                AddProductView { newProduct in
+                    viewModel.addNewProduct(newProduct)
+                }
             }
         }
     }
@@ -174,7 +203,7 @@ struct MainView: View {
         NavigationLink {
             PayView()
         } label: {
-            Text("Check Out\n$" + String(format: "%.2f", cartListManager.totalPrice))
+            Text("Check Out\n$" + String(format: "%.2f", cartListManager.totalPrice + cartListManager.totalTax))
                 .foregroundColor(.black)
                 .font(.system(size: 32, weight: .heavy))
                 .frame(width: 350, height: 100)

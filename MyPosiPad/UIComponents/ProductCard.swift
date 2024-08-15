@@ -40,9 +40,11 @@ struct ProductCard: View {
                 
                 VStack(alignment: .leading) {
                     Text(product.name)
+                        .foregroundColor(.black)
                         .font(.system(size: 16, weight: .bold))
                     
                     Text("$" + String(format: "%.2f", product.price))
+                        .foregroundColor(.black)
                         .font(.system(size: 12, weight: .regular))
                     
                 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Employee: Identifiable, Codable {
+struct Employee: Codable {
     var id: String
     var initial: String
 }
