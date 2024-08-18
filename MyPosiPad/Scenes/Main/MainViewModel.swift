@@ -14,9 +14,11 @@ class MainViewModel: ObservableObject {
     @Published var selectedFilterType: ProductType = .all
     @Published var products: [Product] = []
     @Published var backGroundColor: BackGroundColor = .white
-    @Published var shopName: String = "Shop Name"
+    @Published var shopName: String = "ShopName"
     @Published var benner: PhotosPickerItem?
     @Published var bennerImage: Image = Image("sky")
+    @Published var showReceipt: Bool = false
+    @Published var isLongPressing: Bool = false
     
     let columns: [GridItem] = [
         GridItem(.fixed(200)),
@@ -73,4 +75,7 @@ class MainViewModel: ObservableObject {
         }
     }
     
+    func hideReceipt() {
+        showReceipt = false
+    }
 }
