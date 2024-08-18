@@ -23,6 +23,7 @@
 		041299212AD784D800B302CB /* CartListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041299202AD784D800B302CB /* CartListManager.swift */; };
 		04347EDC2C12CE800079470C /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04347EDB2C12CE800079470C /* AddProductView.swift */; };
 		045F60902AFAD9C600AB7C8B /* EmployeeProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F608F2AFAD9C600AB7C8B /* EmployeeProfileView.swift */; };
+		04A33E052C71A85C000A6585 /* ReceiptProductRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A33E042C71A85C000A6585 /* ReceiptProductRow.swift */; };
 		04A8D36D2B2B9AB3007416E7 /* ScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8D36C2B2B9AB3007416E7 /* ScreenState.swift */; };
 		04C487A62AD3528D00A068E7 /* MyPosiPadApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C487A52AD3528D00A068E7 /* MyPosiPadApp.swift */; };
 		04C487A82AD3528D00A068E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C487A72AD3528D00A068E7 /* ContentView.swift */; };
@@ -54,6 +55,7 @@
 		041299202AD784D800B302CB /* CartListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartListManager.swift; sourceTree = "<group>"; };
 		04347EDB2C12CE800079470C /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
 		045F608F2AFAD9C600AB7C8B /* EmployeeProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileView.swift; sourceTree = "<group>"; };
+		04A33E042C71A85C000A6585 /* ReceiptProductRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptProductRow.swift; sourceTree = "<group>"; };
 		04A8D36C2B2B9AB3007416E7 /* ScreenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenState.swift; sourceTree = "<group>"; };
 		04C487A22AD3528D00A068E7 /* MyPosiPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPosiPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C487A52AD3528D00A068E7 /* MyPosiPadApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPosiPadApp.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				04E4AC7F2ADB3CE400E4D3CB /* CartListRow.swift */,
 				045F608F2AFAD9C600AB7C8B /* EmployeeProfileView.swift */,
 				027011EF2B00917700A36C5E /* KeyPadView.swift */,
+				04A33E042C71A85C000A6585 /* ReceiptProductRow.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A33E052C71A85C000A6585 /* ReceiptProductRow.swift in Sources */,
 				027011F22B00968D00A36C5E /* LoginViewModel.swift in Sources */,
 				04E4AC802ADB3CE400E4D3CB /* CartListRow.swift in Sources */,
 				04041E852AEDB10F0007F06C /* UserDefaultsManger.swift in Sources */,
@@ -389,7 +393,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -445,7 +449,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

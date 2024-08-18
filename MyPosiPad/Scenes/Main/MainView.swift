@@ -48,7 +48,7 @@ struct MainView: View {
                     }
                 }
                 .background(
-                  viewModel.bennerImage
+                    viewModel.bennerImage
                         .resizable()
                         .frame(height: 80)
                         .cornerRadius(15)
@@ -133,13 +133,41 @@ struct MainView: View {
         ScrollView {
             LazyVGrid(columns: viewModel.columns) {
                 ForEach(viewModel.products, id: \.id) { product in
-                    Button {
-                        cartListManager.addToCartList(product: product)
-                        cartListManager.showTotalTax()
-                    } label: {
-                        ProductCard(product: product)
-                    }
+                    ZStack(alignment: .topTrailing) {
+                        
+                        Button {
+                            cartListManager.addToCartList(product: product)
+                            cartListManager.showTotalTax()
+                        } label: {
+                            ProductCard(product: product)
+                                .onTapGesture {
+                                    if !viewModel.isLongPressing {
+                                            cartListManager.addToCartList(product: product)
+                                            cartListManager.showTotalTax()
+                                        }
+                                    }
+                                    .onLongPressGesture {
+                                        viewModel.isLongPressing.toggle()
+                                    }
+                        }
+              
                     .padding()
+              
+                        if viewModel.isLongPressing {
+                            Button {
+                                if let index = viewModel.products.firstIndex(of: product) {
+                                    viewModel.products.remove(at: index)
+                                    viewModel.allProducts.remove(at: index)
+                                }
+                            } label: {
+                                Image(systemName: "minus.circle.fill")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .foregroundColor(.red)
+                                    .padding()
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -200,8 +228,8 @@ struct MainView: View {
     }
     
     private var checkOutButton: some View {
-        NavigationLink {
-            PayView()
+        Button {
+            viewModel.showReceipt.toggle()
         } label: {
             Text("Check Out\n$" + String(format: "%.2f", cartListManager.totalPrice + cartListManager.totalTax))
                 .foregroundColor(.black)
@@ -213,6 +241,71 @@ struct MainView: View {
                         .cornerRadius(15)
                 )
         }
+        .sheet(isPresented: $viewModel.showReceipt) {
+            receiptView
+        }
+    }
+    
+    private var receiptView: some View {
+        VStack {
+            Text("Product Receipt")
+                .font(.title3)
+            Text(viewModel.shopName)
+                .font(.largeTitle)
+                .bold()
+            HStack {
+                Text(Date.now, format: .dateTime.day().month().year())
+                Text(Date.now.formatted(date: .omitted, time: .standard))
+            }
+            Divider()
+            
+            
+            if cartListManager.products.count > 0 {
+                ForEach(cartListManager.products) { product in
+                    ReceiptProductRow(product: product)
+                }
+                
+                HStack {
+                    Text("SubTotal & Tax")
+                        .bold()
+                    Spacer()
+                    
+                    Text("$" + String(format: "%.2f", cartListManager.totalPrice))
+                        .bold()
+                    Text("+ " + String(format: "%.2f", cartListManager.totalTax))
+                }
+            } else {
+                Text("No product")
+                    .onAppear {
+                        viewModel.hideReceipt()
+                    }
+            }
+            
+            Divider()
+            HStack {
+                Text("Total")
+                    .font(.title2)
+                    .bold()
+                
+                Spacer()
+                
+                Text("$" + String(format: "%.2f", cartListManager.totalPrice + cartListManager.totalTax))
+                    .font(.title2)
+                    .bold()
+            }
+            
+            Text("Thank you.")
+                .font(.title2)
+                .bold()
+            Text("See you agian!")
+                .font(.title2)
+                .bold()
+            Text("e-transfer: \(viewModel.shopName)@canada.ca")
+                .font(.title3)
+        }
+        .frame(width: 350)
+        .padding()
+        .border(Color.black, width: 5)
     }
 }
 
