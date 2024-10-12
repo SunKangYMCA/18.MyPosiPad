@@ -20,20 +20,19 @@ class CartListManager: ObservableObject {
             products.append(product)
         }
         totalPrice += product.price
+        totalTax += product.price * taxRate.rate
     }
     
     func removeFromCartList(product: Product) {
         if let index = products.firstIndex(where: {$0.id == product.id}) {
             products[index].quantity -= 1
             if products[index].quantity == 0 {
-                products = products.filter({$0.id != product.id})
+                // filter -> remove
+                products.remove(at: index)
             }
+            totalPrice -= product.price
+            totalTax -= product.price * taxRate.rate
         }
-        totalPrice -= product.price
-        totalTax -= product.price * taxRate.rate
-    }
-    
-    func showTotalTax() {
-        totalTax = totalPrice * taxRate.rate
+        // showTotalTax delete, add totalTax +=
     }
 }

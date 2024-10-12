@@ -12,7 +12,7 @@ struct Employee: Codable {
     var initial: String
 }
 
-extension Optional: RawRepresentable where Wrapped: Codable {
+extension Optional: @retroactive RawRepresentable where Wrapped: Codable {
     public var rawValue: String {
         guard let data = try? JSONEncoder().encode(self) else {
             return "{}"

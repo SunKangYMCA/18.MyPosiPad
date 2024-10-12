@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct AddProductView: View {
     
     @State var product: Product = Product(name: "", price: 0, quantity: 1, smallPicture: "", largePicture: "", type: ProductType.foods, size: "", color: "")
+    @State private var selectedPhotoItem: PhotosPickerItem? = nil
+    
     var onAddNewProduct: (Product) -> ()
     
     var body: some View {
@@ -36,8 +39,31 @@ struct AddProductView: View {
             
             HStack {
                 Text("Price:  $")
-                TextField("ProductpPrice ex)$ 0.00", value: $product.price, formatter: NumberFormatter())
+                TextField("ProductPrice ex)$ 0.00", value: $product.price, formatter: NumberFormatter())
                     .textFieldStyle(.roundedBorder)
+            }
+            
+            HStack {
+                Text("Picture:  ")
+                
+                PhotosPicker(selection: $selectedPhotoItem, matching: .images) {
+                    
+                    Text(product.largePicture.isEmpty ? "Select Picture" : "Selected!!")
+                        .foregroundStyle(product.largePicture.isEmpty ? .red: .green)
+
+                }
+                
+                .onChange(of: selectedPhotoItem) { oldItem, newItem in
+                    Task {
+                        if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                            let base64String = data.base64EncodedString()
+                            product.largePicture = base64String
+                            
+                        }
+                    }
+                }
+                
+                Spacer()
             }
             
             HStack {
@@ -56,14 +82,12 @@ struct AddProductView: View {
                 Text("Size:  ")
                 TextField("Product Size, selectable", text: $product.size)
                     .textFieldStyle(.roundedBorder)
-                    .buttonStyle(.bordered)
             }
             
             HStack {
                 Text("Color:  ")
                 TextField("Product Color, selectable", text: $product.color)
                     .textFieldStyle(.roundedBorder)
-                    .buttonStyle(.bordered)
             }
         }
         .padding(.horizontal, 100)
@@ -82,7 +106,7 @@ struct AddProductView: View {
                     Color.blue
                         .opacity(0.5)
                         .cornerRadius(15)
-                    )
+                )
         }
     }
 }

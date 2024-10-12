@@ -19,7 +19,7 @@ enum ProductType: Codable, CaseIterable, Identifiable {
         case .all:
             return "All"
         case .foods:
-            return "Food"
+            return "Foods"
         case .clothes:
             return "Clothes"
         case .homes:

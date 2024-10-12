@@ -14,25 +14,28 @@ struct CartListRow: View {
     
     var body: some View {
         HStack(spacing: 10) {
-            if product.smallPicture.isEmpty {
-                Image(systemName: "photo")
+            //Add Image, Use largePicture because save problem
+            if let imageData = Data(base64Encoded: product.largePicture),
+               let uiImage = UIImage(data: imageData) {
+                Image(uiImage: uiImage)
                     .resizable()
                     .frame(width: 80, height: 80)
-                    .padding(10)
-                    .background(Color.white)
                     .cornerRadius(15)
+                    .padding(10)
+                    .background(Color.white.cornerRadius(15))
                     .padding()
                     .shadow(radius: 5)
             } else {
                 Image(product.smallPicture)
                     .resizable()
                     .frame(width: 80, height: 80)
+                    .cornerRadius(15)
                     .padding(10)
-                    .background(Color.white)
+                    .background(Color.white.cornerRadius(15))
                     .cornerRadius(15)
                     .padding()
                     .shadow(radius: 5)
-            }
+                }
             
             VStack(alignment: .leading, spacing: 10) {
                 Text(product.name)

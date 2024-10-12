@@ -48,8 +48,6 @@ struct SettingsView: View {
             }
             
             HStack {
-          
-                
                 Text("ChangeColor")
                     .font(.title2)
                     .padding()
@@ -73,11 +71,9 @@ struct SettingsView: View {
                             .cornerRadius(15)
                     )
                 }
-          
             }
             
             HStack {
-      
                 Text("ShopName")
                     .font(.title2)
                     .padding()
@@ -92,11 +88,9 @@ struct SettingsView: View {
                 TextField("Name", text: $mainViewModel.shopName)
                     .frame(width: 100)
                     .textFieldStyle(.roundedBorder)
-            
             }
             
             HStack {
-           
                 Text("Benner")
                     .font(.title2)
                     .padding()
@@ -128,10 +122,6 @@ struct SettingsView: View {
                             }
                     }
                 }
-                    
-                    
-                    
-                
             }
         }
     }
@@ -147,7 +137,6 @@ struct SettingsView: View {
             }
             
             HStack {
-       
                 Text("TaxSetting")
                     .font(.title2)
                     .padding()

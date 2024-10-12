@@ -36,8 +36,8 @@ class UserManager: ObservableObject {
     
     func signOut() {
         loggedEmployee = nil
-        currentEmployee.id = ""
-        currentEmployee.initial = ""
+        currentEmployee = Employee(id: "", initial: "")
+        //2Line -> 1Line
     }
     
     private func authenticate(id: String) -> Employee? {

@@ -58,14 +58,14 @@ struct KeyPadButton: View {
     }
 
     enum ActionKey: EnvironmentKey {
-        static var defaultValue: (String) -> Void { { _ in } }
+        static var defaultValue: (String) -> () { { _ in } }
     }
 
-    @Environment(\.keyPadButtonAction) var action: (String) -> Void
+    @Environment(\.keyPadButtonAction) var action: (String) -> ()
 }
 
 extension EnvironmentValues {
-    var keyPadButtonAction: (String) -> Void {
+    var keyPadButtonAction: (String) -> () {
         get { self[KeyPadButton.ActionKey.self] }
         set { self[KeyPadButton.ActionKey.self] = newValue }
     }

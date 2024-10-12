@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct MainView: View {
 
@@ -16,7 +17,7 @@ struct MainView: View {
     var body: some View {
         ZStack {
             viewModel.backGroundColor.color
-                .ignoresSafeArea()
+                .ignoresSafeArea(.all)
                 .opacity(0.2)
                 .cornerRadius(20)
             VStack {
@@ -72,7 +73,6 @@ struct MainView: View {
                 }
                 
                 .padding(.horizontal, 30)
-                .environmentObject(cartListManager)
             }
         }
     }
@@ -132,18 +132,16 @@ struct MainView: View {
     private var productListView: some View {
         ScrollView {
             LazyVGrid(columns: viewModel.columns) {
-                ForEach(viewModel.products, id: \.id) { product in
+                ForEach(viewModel.products) { product in
                     ZStack(alignment: .topTrailing) {
-                        
                         Button {
                             cartListManager.addToCartList(product: product)
-                            cartListManager.showTotalTax()
                         } label: {
                             ProductCard(product: product)
                                 .onTapGesture {
                                     if !viewModel.isLongPressing {
                                             cartListManager.addToCartList(product: product)
-                                            cartListManager.showTotalTax()
+                                        // Delete Func
                                         }
                                     }
                                     .onLongPressGesture {

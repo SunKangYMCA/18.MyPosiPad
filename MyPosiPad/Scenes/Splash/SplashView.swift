@@ -12,13 +12,10 @@ struct SplashView: View {
     @StateObject var viewModel: SplashViewModel = SplashViewModel()
     
     var body: some View {
-        
-        ZStack {
+
             VStack {
                 if viewModel.shouldShowLoginView {
-                    withAnimation {
                         LoginView()
-                    }
                 } else {
                     HStack {
                         Text("POS")
@@ -40,7 +37,6 @@ struct SplashView: View {
             .padding()
             .onAppear {
                 viewModel.showLoginView()
-            }
         }
     }
 }
