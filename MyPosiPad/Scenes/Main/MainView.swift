@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct MainView: View {
 
@@ -133,10 +134,8 @@ struct MainView: View {
             LazyVGrid(columns: viewModel.columns) {
                 ForEach(viewModel.products) { product in
                     ZStack(alignment: .topTrailing) {
-                        
                         Button {
                             cartListManager.addToCartList(product: product)
-                            cartListManager.showTotalTax()
                         } label: {
                             ProductCard(product: product)
                                 .onTapGesture {
