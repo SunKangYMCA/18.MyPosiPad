@@ -18,20 +18,21 @@ struct ProductCard: View {
                     Color.yellow
                         .opacity(0.7)
                         .cornerRadius(20)
-                    
-                    if product.smallPicture.isEmpty {
-                        Image(systemName: "photo")
+                    //Add Image Decoding
+                    if let imageData = Data(base64Encoded: product.largePicture),
+                       let uiImage = UIImage(data: imageData) {
+                        Image(uiImage: uiImage)
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 150)
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 150, height: 150)
                             .background(Color.white)
                             .cornerRadius(20)
                             .padding()
                     } else {
-                        Image(product.smallPicture)
+                        Image(product.largePicture)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: 150)
+                            .frame(width: 150, height: 150)
                             .background(Color.white)
                             .cornerRadius(20)
                             .padding()

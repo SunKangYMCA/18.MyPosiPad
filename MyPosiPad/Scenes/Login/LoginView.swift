@@ -30,7 +30,6 @@ struct LoginView: View {
                 }
             }
         }
-        .environmentObject(userManager)
     }
     
     private var keypadSection: some View {
