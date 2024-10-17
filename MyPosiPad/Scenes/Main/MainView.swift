@@ -56,7 +56,16 @@ struct MainView: View {
                 )
                 HStack {
                     VStack {
-                        filterButtons
+                        HStack {
+                            if viewModel.isSearching {
+                                textFieldView
+                                searchButton
+                            } else {
+                                filterButtons
+                                Spacer()
+                                searchButton
+                            }
+                        }
                         productListView
                         addProductButton
                     }
@@ -126,6 +135,33 @@ struct MainView: View {
                     )
                     .cornerRadius(15)
             }
+        }
+    }
+    
+    private var textFieldView: some View {
+        TextField("Search", text: $viewModel.searchText)
+            .textFieldStyle(.roundedBorder)
+            .onChange(of: viewModel.searchText) {
+                viewModel.products = viewModel.allProducts
+                viewModel.applyNameFilter()
+                viewModel.products = viewModel.filteredProducts
+                        }
+    }
+    
+    private var searchButton: some View {
+        
+        Button {
+            viewModel.isSearching.toggle()
+            viewModel.products = viewModel.allProducts
+            viewModel.searchText = ""
+        } label: {
+            Text(viewModel.isSearching ? "Cancel" : "Search")
+                .font(.system(size: 24, weight: .bold))
+                .padding()
+                .background(
+                    Color.green.opacity(0.3)
+                )
+                .cornerRadius(15)
         }
     }
     

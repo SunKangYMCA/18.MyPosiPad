@@ -19,6 +19,9 @@ class MainViewModel: ObservableObject {
     @Published var bennerImage: Image = Image("sky")
     @Published var showReceipt: Bool = false
     @Published var isLongPressing: Bool = false
+    @Published var isSearching: Bool = false
+    @Published var searchText: String = ""
+    @Published var filteredProducts: [Product] = []
     
     let columns: [GridItem] = [
         GridItem(.fixed(200)),
@@ -77,5 +80,16 @@ class MainViewModel: ObservableObject {
     
     func hideReceipt() {
         showReceipt = false
+    }
+    
+    func applyNameFilter() {
+        let query = searchText.lowercased()
+        if query.isEmpty {
+            filteredProducts = allProducts
+        } else {
+        filteredProducts = products.filter { product in
+            product.name.lowercased().contains(query)
+            }
+        }
     }
 }
