@@ -19,7 +19,7 @@ struct ProductCard: View {
                         .opacity(0.7)
                         .cornerRadius(20)
                     //Add Image Decoding
-                    if let imageData = Data(base64Encoded: product.largePicture),
+                    if let imageData = Data(base64Encoded: product.unwrappedLargePicture),
                        let uiImage = UIImage(data: imageData) {
                         Image(uiImage: uiImage)
                             .resizable()
@@ -29,7 +29,7 @@ struct ProductCard: View {
                             .cornerRadius(20)
                             .padding()
                     } else {
-                        Image(product.largePicture)
+                        Image(product.unwrappedLargePicture)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 150, height: 150)
@@ -40,7 +40,7 @@ struct ProductCard: View {
                 }
                 
                 VStack(alignment: .leading) {
-                    Text(product.name)
+                    Text(product.unwrappedName)
                         .foregroundColor(.black)
                         .font(.system(size: 16, weight: .bold))
                     
@@ -59,9 +59,8 @@ struct ProductCard: View {
         }
     }
 }
-
 struct ProductCard_Previews: PreviewProvider {
     static var previews: some View {
-        ProductCard(product: Product(name: "Tshirt", price: 10.99, quantity: 1, smallPicture: "TshirtSmall", largePicture: "TshirtLarge", type: .homes, size: "100cm", color: "Yellow"))
+        ProductCard(product: Product())
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct MainView: View {
-
+    
     @EnvironmentObject var cartListManager: CartListManager
     @EnvironmentObject var userManager: UserManager
     @EnvironmentObject var viewModel: MainViewModel
@@ -77,9 +77,6 @@ struct MainView: View {
                         checkOutButton
                     }
                 }
-                .onAppear {
-                    viewModel.products = viewModel.allProducts
-                }
                 
                 .padding(.horizontal, 30)
             }
@@ -142,17 +139,15 @@ struct MainView: View {
         TextField("Search", text: $viewModel.searchText)
             .textFieldStyle(.roundedBorder)
             .onChange(of: viewModel.searchText) {
-                viewModel.products = viewModel.allProducts
                 viewModel.applyNameFilter()
                 viewModel.products = viewModel.filteredProducts
-                        }
+            }
     }
     
     private var searchButton: some View {
         
         Button {
             viewModel.isSearching.toggle()
-            viewModel.products = viewModel.allProducts
             viewModel.searchText = ""
         } label: {
             Text(viewModel.isSearching ? "Cancel" : "Search")
@@ -176,23 +171,23 @@ struct MainView: View {
                             ProductCard(product: product)
                                 .onTapGesture {
                                     if !viewModel.isLongPressing {
-                                            cartListManager.addToCartList(product: product)
+                                        cartListManager.addToCartList(product: product)
                                         // Delete Func
-                                        }
                                     }
-                                    .onLongPressGesture {
-                                        viewModel.isLongPressing.toggle()
-                                    }
+                                }
+                                .onLongPressGesture {
+                                    viewModel.isLongPressing.toggle()
+                                }
                         }
-              
-                    .padding()
-              
+                        
+                        .padding()
+                        
                         if viewModel.isLongPressing {
                             Button {
-                                if let index = viewModel.products.firstIndex(of: product) {
-                                    viewModel.products.remove(at: index)
-                                    viewModel.allProducts.remove(at: index)
-                                }
+//                                if let index = viewModel.products.firstIndex(of: product) {
+//                                    viewModel.products.remove(at: index)
+//                                    viewModel.allProducts.remove(at: index)
+//                                }
                             } label: {
                                 Image(systemName: "minus.circle.fill")
                                     .resizable()
@@ -254,9 +249,7 @@ struct MainView: View {
         }
         .sheet(isPresented: $viewModel.showAddProductView) {
             if viewModel.showAddProductView {
-                AddProductView { newProduct in
-                    viewModel.addNewProduct(newProduct)
-                }
+                AddProductView()
             }
         }
     }

@@ -11,7 +11,7 @@
 		027011F02B00917700A36C5E /* KeyPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027011EF2B00917700A36C5E /* KeyPadView.swift */; };
 		027011F22B00968D00A36C5E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027011F12B00968D00A36C5E /* LoginViewModel.swift */; };
 		04010F072C91D6A900FB2D45 /* AddProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04010F062C91D6A900FB2D45 /* AddProductViewModel.swift */; };
-		04041E852AEDB10F0007F06C /* UserDefaultsManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04041E842AEDB10F0007F06C /* UserDefaultsManger.swift */; };
+		04041E852AEDB10F0007F06C /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04041E842AEDB10F0007F06C /* UserDefaultsManager.swift */; };
 		041263E62AD4E18B00E9E49E /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041263E52AD4E18B00E9E49E /* Employee.swift */; };
 		041263E92AD4EA7500E9E49E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041263E82AD4EA7500E9E49E /* MainTabView.swift */; };
 		041263EC2AD608B200E9E49E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041263EB2AD608B200E9E49E /* SettingsView.swift */; };
@@ -26,6 +26,11 @@
 		045F60902AFAD9C600AB7C8B /* EmployeeProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F608F2AFAD9C600AB7C8B /* EmployeeProfileView.swift */; };
 		04A33E052C71A85C000A6585 /* ReceiptProductRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A33E042C71A85C000A6585 /* ReceiptProductRow.swift */; };
 		04A8D36D2B2B9AB3007416E7 /* ScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8D36C2B2B9AB3007416E7 /* ScreenState.swift */; };
+		04BE290C2CD47BEA00892F04 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE290B2CD47BEA00892F04 /* Persistence.swift */; };
+		04BE29112CD4881B00892F04 /* MyPOSDataModel.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 04BE29102CD4881B00892F04 /* MyPOSDataModel.xcdatamodeld */; };
+		04BE29122CD4881B00892F04 /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE290E2CD4881B00892F04 /* Product+CoreDataProperties.swift */; };
+		04BE29132CD4881B00892F04 /* Product+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE290D2CD4881B00892F04 /* Product+CoreDataClass.swift */; };
+		04BE29342CD5BB2800892F04 /* ProductData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE29332CD5BB2800892F04 /* ProductData.swift */; };
 		04C487A62AD3528D00A068E7 /* MyPosiPadApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C487A52AD3528D00A068E7 /* MyPosiPadApp.swift */; };
 		04C487A82AD3528D00A068E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C487A72AD3528D00A068E7 /* ContentView.swift */; };
 		04C487AA2AD3529000A068E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C487A92AD3529000A068E7 /* Assets.xcassets */; };
@@ -44,7 +49,7 @@
 		027011EF2B00917700A36C5E /* KeyPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPadView.swift; sourceTree = "<group>"; };
 		027011F12B00968D00A36C5E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		04010F062C91D6A900FB2D45 /* AddProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewModel.swift; sourceTree = "<group>"; };
-		04041E842AEDB10F0007F06C /* UserDefaultsManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManger.swift; sourceTree = "<group>"; };
+		04041E842AEDB10F0007F06C /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		041263E52AD4E18B00E9E49E /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		041263E82AD4EA7500E9E49E /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		041263EB2AD608B200E9E49E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -59,6 +64,11 @@
 		045F608F2AFAD9C600AB7C8B /* EmployeeProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProfileView.swift; sourceTree = "<group>"; };
 		04A33E042C71A85C000A6585 /* ReceiptProductRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptProductRow.swift; sourceTree = "<group>"; };
 		04A8D36C2B2B9AB3007416E7 /* ScreenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenState.swift; sourceTree = "<group>"; };
+		04BE290B2CD47BEA00892F04 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		04BE290D2CD4881B00892F04 /* Product+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataClass.swift"; sourceTree = "<group>"; };
+		04BE290E2CD4881B00892F04 /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		04BE290F2CD4881B00892F04 /* MyPOSDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyPOSDataModel.xcdatamodel; sourceTree = "<group>"; };
+		04BE29332CD5BB2800892F04 /* ProductData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductData.swift; sourceTree = "<group>"; };
 		04C487A22AD3528D00A068E7 /* MyPosiPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPosiPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C487A52AD3528D00A068E7 /* MyPosiPadApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPosiPadApp.swift; sourceTree = "<group>"; };
 		04C487A72AD3528D00A068E7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +99,7 @@
 			children = (
 				041263E52AD4E18B00E9E49E /* Employee.swift */,
 				041263F92AD60F9B00E9E49E /* Product.swift */,
+				04BE29332CD5BB2800892F04 /* ProductData.swift */,
 				04D8BDF62AE782CB002DA263 /* ProductType.swift */,
 				04A8D36C2B2B9AB3007416E7 /* ScreenState.swift */,
 				04DBF5022C6D9E2F0062EACD /* BackGroundColor.swift */,
@@ -153,7 +164,7 @@
 		0412991F2AD784AA00B302CB /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				04041E842AEDB10F0007F06C /* UserDefaultsManger.swift */,
+				04041E842AEDB10F0007F06C /* UserDefaultsManager.swift */,
 				041299202AD784D800B302CB /* CartListManager.swift */,
 				027011ED2B00827C00A36C5E /* UserManager.swift */,
 			);
@@ -185,6 +196,10 @@
 				041263E42AD4E13F00E9E49E /* Model */,
 				04C487A52AD3528D00A068E7 /* MyPosiPadApp.swift */,
 				04C487A72AD3528D00A068E7 /* ContentView.swift */,
+				04BE290B2CD47BEA00892F04 /* Persistence.swift */,
+				04BE290D2CD4881B00892F04 /* Product+CoreDataClass.swift */,
+				04BE290E2CD4881B00892F04 /* Product+CoreDataProperties.swift */,
+				04BE29102CD4881B00892F04 /* MyPOSDataModel.xcdatamodeld */,
 				04C487A92AD3529000A068E7 /* Assets.xcassets */,
 				04C487AB2AD3529000A068E7 /* Preview Content */,
 			);
@@ -299,6 +314,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04BE29112CD4881B00892F04 /* MyPOSDataModel.xcdatamodeld in Resources */,
 				04C487AD2AD3529000A068E7 /* Preview Assets.xcassets in Resources */,
 				04C487AA2AD3529000A068E7 /* Assets.xcassets in Resources */,
 			);
@@ -314,10 +330,13 @@
 				04A33E052C71A85C000A6585 /* ReceiptProductRow.swift in Sources */,
 				027011F22B00968D00A36C5E /* LoginViewModel.swift in Sources */,
 				04E4AC802ADB3CE400E4D3CB /* CartListRow.swift in Sources */,
-				04041E852AEDB10F0007F06C /* UserDefaultsManger.swift in Sources */,
+				04041E852AEDB10F0007F06C /* UserDefaultsManager.swift in Sources */,
 				04C487A82AD3528D00A068E7 /* ContentView.swift in Sources */,
 				041299212AD784D800B302CB /* CartListManager.swift in Sources */,
 				041263F62AD6099700E9E49E /* PayView.swift in Sources */,
+				04BE29342CD5BB2800892F04 /* ProductData.swift in Sources */,
+				04BE29122CD4881B00892F04 /* Product+CoreDataProperties.swift in Sources */,
+				04BE29132CD4881B00892F04 /* Product+CoreDataClass.swift in Sources */,
 				04C487A62AD3528D00A068E7 /* MyPosiPadApp.swift in Sources */,
 				041263EF2AD608EF00E9E49E /* MainView.swift in Sources */,
 				045F60902AFAD9C600AB7C8B /* EmployeeProfileView.swift in Sources */,
@@ -339,6 +358,7 @@
 				027011EE2B00827C00A36C5E /* UserManager.swift in Sources */,
 				041263FA2AD60F9B00E9E49E /* Product.swift in Sources */,
 				04DBF5052C6D9E610062EACD /* TaxRate.swift in Sources */,
+				04BE290C2CD47BEA00892F04 /* Persistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +569,18 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		04BE29102CD4881B00892F04 /* MyPOSDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				04BE290F2CD4881B00892F04 /* MyPOSDataModel.xcdatamodel */,
+			);
+			currentVersion = 04BE290F2CD4881B00892F04 /* MyPOSDataModel.xcdatamodel */;
+			path = MyPOSDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 04C4879A2AD3528D00A068E7 /* Project object */;
 }
