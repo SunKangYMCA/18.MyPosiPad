@@ -7,13 +7,11 @@
 
 import SwiftUI
 import PhotosUI
+import CoreData
 
 struct AddProductView: View {
-    
-    @State var product: Product = Product(name: "", price: 0, quantity: 1, smallPicture: "", largePicture: "", type: ProductType.foods, size: "", color: "")
-    @State private var selectedPhotoItem: PhotosPickerItem? = nil
-    
-    var onAddNewProduct: (Product) -> ()
+    @StateObject var viewModel: AddProductViewModel = AddProductViewModel()
+    @EnvironmentObject var mainViewModel: MainViewModel
     
     var body: some View {
         VStack(alignment: .center, spacing: 30) {
@@ -24,7 +22,6 @@ struct AddProductView: View {
             productInfomationAddView
             
             addNewProductButton
-            
         }
     }
     
@@ -33,31 +30,31 @@ struct AddProductView: View {
         VStack(alignment: .center, spacing: 20) {
             HStack {
                 Text("Name:  ")
-                TextField("Name", text: $product.name)
+                TextField("Name", text: $viewModel.newProduct.name)
                     .textFieldStyle(.roundedBorder)
             }
             
             HStack {
                 Text("Price:  $")
-                TextField("ProductPrice ex)$ 0.00", value: $product.price, formatter: NumberFormatter())
+                TextField("ProductPrice ex)$ 0.00", value: $viewModel.newProduct.price, formatter: NumberFormatter())
                     .textFieldStyle(.roundedBorder)
             }
             
             HStack {
                 Text("Picture:  ")
                 
-                PhotosPicker(selection: $selectedPhotoItem, matching: .images) {
+                PhotosPicker(selection: $viewModel.selectedPhotoItem, matching: .images) {
                     
-                    Text(product.largePicture.isEmpty ? "Select Picture" : "Selected!!")
-                        .foregroundStyle(product.largePicture.isEmpty ? .red: .green)
+                    Text(viewModel.newProduct.largePicture.isEmpty ? "Select Picture" : "Selected!!")
+                        .foregroundStyle(viewModel.newProduct.largePicture.isEmpty ? .red: .green)
 
                 }
                 
-                .onChange(of: selectedPhotoItem) { oldItem, newItem in
+                .onChange(of: viewModel.selectedPhotoItem) { oldItem, newItem in
                     Task {
                         if let data = try? await newItem?.loadTransferable(type: Data.self) {
                             let base64String = data.base64EncodedString()
-                            product.largePicture = base64String
+                            viewModel.newProduct.largePicture = base64String
                             
                         }
                     }
@@ -68,10 +65,10 @@ struct AddProductView: View {
             
             HStack {
                 Text("Type:  ")
-                Picker("Type", selection: $product.type) {
+                Picker("Type", selection: $viewModel.newProduct.type) {
                     ForEach(ProductType.allCases) { type in
                         if type != .all {
-                            Text(type.title)
+                            Text(type.title).tag(type.rawValue)
                         }
                     }
                 }
@@ -80,13 +77,13 @@ struct AddProductView: View {
             
             HStack {
                 Text("Size:  ")
-                TextField("Product Size, selectable", text: $product.size)
+                TextField("Product Size, selectable", text: $viewModel.newProduct.size)
                     .textFieldStyle(.roundedBorder)
             }
             
             HStack {
                 Text("Color:  ")
-                TextField("Product Color, selectable", text: $product.color)
+                TextField("Product Color, selectable", text: $viewModel.newProduct.color)
                     .textFieldStyle(.roundedBorder)
             }
         }
@@ -96,7 +93,8 @@ struct AddProductView: View {
     private var addNewProductButton: some View {
         
         Button {
-            onAddNewProduct(product)
+            viewModel.addNewProduct()
+            mainViewModel.fetchProducts()
         } label: {
             Text("Add New Product")
                 .font(.system(size: 32, weight: .heavy))
@@ -113,6 +111,6 @@ struct AddProductView: View {
 
 struct AddProductView_Previews: PreviewProvider {
     static var previews: some View {
-        AddProductView(onAddNewProduct: { _ in})
+        AddProductView()
     }
 }

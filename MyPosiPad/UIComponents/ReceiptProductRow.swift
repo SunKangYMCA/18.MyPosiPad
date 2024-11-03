@@ -13,7 +13,7 @@ struct ReceiptProductRow: View {
     
     var body: some View {
         HStack {
-            Text(product.name)
+            Text(product.unwrappedName)
             Spacer()
             Text("\(product.quantity)")
             Text("$" + String(format: "%.2f", product.price))
@@ -22,5 +22,5 @@ struct ReceiptProductRow: View {
 }
 
 #Preview {
-    ReceiptProductRow(product: Product(name: "Banana", price: 0.45, quantity: 1, smallPicture: "", largePicture: "", type: .all, size: "", color: ""))
+    ReceiptProductRow(product: Product())
 }

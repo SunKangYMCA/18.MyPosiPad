@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum ProductType: Codable, CaseIterable, Identifiable {
+enum ProductType: String, CaseIterable, Identifiable {
     case all, foods, clothes, homes
     
     var id: Self {
